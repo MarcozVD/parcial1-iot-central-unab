@@ -193,3 +193,46 @@ ConnectionAbortedError: [WinError 10053] Se ha anulado una conexión establecida
 [2026-09-24 16:22:52] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 10, "tempPuerta": 24.29, "tsDispositivo": "2026-09-24T21:22:51+00:00"}
 [2026-09-24 16:23:42] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 4, "tempPuerta": 23.71, "tsDispositivo": "2026-09-24T21:23:41+00:00"}
 [2026-09-24 16:24:52] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 10, "tempPuerta": 24.09, "tsDispositivo": "2026-09-24T21:24:52+00:00"}
+[2026-09-24 16:29:43] INFO  DPS OK -> hub iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 16:29:44] INFO  puente conectado y publicando el ciclo de la puerta cada 120 s
+[2026-09-24 16:29:44] INFO  puente HTTP escuchando en http://127.0.0.1:8098/telemetria (sensor de campo)
+[2026-09-24 16:29:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.72, "tsDispositivo": "2026-09-24T21:29:44+00:00"}
+[2026-09-24 16:29:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.57, "tsDispositivo": "2026-09-24T21:29:44+00:00"}
+[2026-09-24 16:31:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 24.18, "tsDispositivo": "2026-09-24T21:31:44+00:00"}
+[2026-09-24 16:31:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.81, "tsDispositivo": "2026-09-24T21:31:44+00:00"}
+[2026-09-24 16:33:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.66, "tsDispositivo": "2026-09-24T21:33:44+00:00"}
+[2026-09-24 16:33:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.51, "tsDispositivo": "2026-09-24T21:33:44+00:00"}
+[2026-09-24 16:35:44] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.63, "tsDispositivo": "2026-09-24T21:35:44+00:00"}
+[2026-09-24 16:35:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 24.18, "tsDispositivo": "2026-09-24T21:35:44+00:00"}
+[2026-09-24 16:37:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.58, "tsDispositivo": "2026-09-24T21:37:44+00:00"}
+[2026-09-24 16:37:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.97, "tsDispositivo": "2026-09-24T21:37:45+00:00"}
+[2026-09-24 16:39:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.81, "tsDispositivo": "2026-09-24T21:39:45+00:00"}
+[2026-09-24 16:39:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.7, "tsDispositivo": "2026-09-24T21:39:45+00:00"}
+[2026-09-24 16:41:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.91, "tsDispositivo": "2026-09-24T21:41:45+00:00"}
+[2026-09-24 16:41:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.59, "tsDispositivo": "2026-09-24T21:41:45+00:00"}
+[2026-09-24 16:43:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.53, "tsDispositivo": "2026-09-24T21:43:45+00:00"}
+[2026-09-24 16:43:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.45, "tsDispositivo": "2026-09-24T21:43:45+00:00"}
+[2026-09-24 16:45:45] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.48, "tsDispositivo": "2026-09-24T21:45:45+00:00"}
+[2026-09-24 16:45:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 24.03, "tsDispositivo": "2026-09-24T21:45:46+00:00"}
+[2026-09-24 16:47:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.55, "tsDispositivo": "2026-09-24T21:47:45+00:00"}
+[2026-09-24 16:47:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.64, "tsDispositivo": "2026-09-24T21:47:46+00:00"}
+[2026-09-24 16:49:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": true, "eventosAcceso": 1, "tempPuerta": 24.18, "tsDispositivo": "2026-09-24T21:49:46+00:00"}
+[2026-09-24 16:49:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.91, "tsDispositivo": "2026-09-24T21:49:46+00:00"}
+[2026-09-24 16:51:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.9, "tsDispositivo": "2026-09-24T21:51:46+00:00"}
+[2026-09-24 16:51:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 24.19, "tsDispositivo": "2026-09-24T21:51:46+00:00"}
+[2026-09-24 16:53:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.86, "tsDispositivo": "2026-09-24T21:53:46+00:00"}
+[2026-09-24 16:53:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 23.88, "tsDispositivo": "2026-09-24T21:53:46+00:00"}
+[2026-09-24 16:55:46] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.53, "tsDispositivo": "2026-09-24T21:55:46+00:00"}
+[2026-09-24 16:55:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": true, "eventosAcceso": 1, "tempPuerta": 23.7, "tsDispositivo": "2026-09-24T21:55:47+00:00"}
+[2026-09-24 16:57:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.92, "tsDispositivo": "2026-09-24T21:57:46+00:00"}
+[2026-09-24 16:57:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.46, "tsDispositivo": "2026-09-24T21:57:47+00:00"}
+[2026-09-24 16:59:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.39, "tsDispositivo": "2026-09-24T21:59:47+00:00"}
+[2026-09-24 16:59:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 24.17, "tsDispositivo": "2026-09-24T21:59:47+00:00"}
+[2026-09-24 17:01:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.8, "tsDispositivo": "2026-09-24T22:01:47+00:00"}
+[2026-09-24 17:01:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": true, "eventosAcceso": 2, "tempPuerta": 23.73, "tsDispositivo": "2026-09-24T22:01:47+00:00"}
+[2026-09-24 17:03:47] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.78, "tsDispositivo": "2026-09-24T22:03:47+00:00"}
+[2026-09-24 17:03:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.99, "tsDispositivo": "2026-09-24T22:03:47+00:00"}
+[2026-09-24 17:05:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.8, "tsDispositivo": "2026-09-24T22:05:47+00:00"}
+[2026-09-24 17:05:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.59, "tsDispositivo": "2026-09-24T22:05:48+00:00"}
+[2026-09-24 17:07:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.77, "tsDispositivo": "2026-09-24T22:07:48+00:00"}
+[2026-09-24 17:07:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.85, "tsDispositivo": "2026-09-24T22:07:48+00:00"}

@@ -1,0 +1,30 @@
+[TX] {"tempIntake":22.82,"tempExhaust":32.74,"humedadRack":49.48} (ok)
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] rc=-2
+[MQTT] sesion caida o sin conectar: reconectando
+[MQTT] a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[MQTT] conectado al hub (Rack B)
+[TX] {"tempIntake":22.47,"tempExhaust":32.39,"humedadRack":48.29} (ok)
+[TX] {"tempIntake":22.28,"tempExhaust":32.2,"humedadRack":46.69} (ok)
+[TX] {"tempIntake":22.35,"tempExhaust":32.27,"humedadRack":48.99} (ok)
+[TX] {"tempIntake":22.71,"tempExhaust":32.63,"humedadRack":46.8} (ok)
+
