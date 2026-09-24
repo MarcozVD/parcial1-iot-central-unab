@@ -87,7 +87,27 @@ informe/         informe y anexo de evidencias (.docx / .pdf)
 | 4 | dom 27 sep | cierre de la ventana, comparativa de los 4 días y sustentación |
 
 El detalle día a día (incluidos los valores máximo/mínimo/promedio/recuento/sumatoria y la
-lectura operativa de cada extremo) está en `docs/04-ventana-4-dias.md`.
+lectura operativa de cada extremo) está en `docs/04-ventana-4-dias.md`. El procedimiento de
+operación (rutina diaria, reconstrucción de los ESP32 virtuales, pausa documentada y costo)
+está en `docs/05-operacion.md`.
+
+## Reglas configuradas en la aplicación
+
+Las seis reglas viven en la plataforma (no en el repositorio) y todas notifican al operador.
+La lista está en **Administrar → Reglas**; el estado al 24 sep es *Habilitado* en las seis
+(evidencia `evidencias/06-reglas-6-habilitadas.png`).
+
+| # | Regla | Condición | Acción |
+|---|-------|-----------|--------|
+| 1 | Alerta temperatura de rack | `tempExhaust > 35 °C` | correo |
+| 2 | Alerta humedad de rack | `humedadRack > 60 %HR` | correo |
+| 3 | Humo detectado en sala | `humo > 0,08 %obs/m` | correo |
+| 4 | Calidad de aire degradada | `pm25 > 35 µg/m³` | correo |
+| 5 | Alerta humedad en piso tecnico | `humedadPiso > 70 %` | correo |
+| 6 | Exceso de eventos de acceso | `eventosAcceso > 20` | correo |
+
+Las condiciones usan telemetrías **numéricas** a propósito: el umbral queda trazable al
+datasheet de la variable (anexo A del informe) y se puede replicar en la sustentación.
 
 ## Modelos y supuestos documentados
 

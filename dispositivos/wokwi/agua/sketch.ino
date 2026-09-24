@@ -151,14 +151,12 @@ bool dpsMqttRegister() {
       if (!deserializeJson(d, dpsPayload)) {
         const char* st = d["status"] | "";
         JsonObject rs = d["registrationState"];
-        Serial.printf("[DPS] resp=%ld status=%s
-", dpsStatus, st);
+        Serial.printf("[DPS] resp=%ld status=%s\n", dpsStatus, st);
         if (strcmp(st, "assigned") == 0) {
           hubHost = rs["assignedHub"] | "";
           hubHost.replace("https://", ""); hubHost.replace("/", "");
           mqtt.disconnect();
-          Serial.printf("[DPS] asignado a %s
-", hubHost.c_str());
+          Serial.printf("[DPS] asignado a %s\n", hubHost.c_str());
           return true;
         }
         if (opId == "") { opId = d["operationId"] | ""; if (opId == "") opId = rs["operationId"] | ""; }
@@ -166,8 +164,7 @@ bool dpsMqttRegister() {
           lastPoll = millis();
           String q = "$dps/registrations/GET/iotdps-get-operationstatus/?$rid=" + String(rid++) + "&operationId=" + opId;
           mqtt.publish(q.c_str(), "");
-          Serial.printf("[DPS] sondeo operationId=%s
-", opId.c_str());
+          Serial.printf("[DPS] sondeo operationId=%s\n", opId.c_str());
         }
       }
     }
@@ -228,7 +225,10 @@ void setup() {
 
 void loop() {
   if (WiFi.status() != WL_CONNECTED) { Serial.println("[WIFI] perdido, reinicio"); ESP.restart(); }
-  if (!connected) {
+  // el SAS caduca cada hora: si el hub corta la sesion, se reconecta con un token nuevo
+  if (!connected || !mqtt.connected()) {
+    connected = false;
+    Serial.println("[MQTT] sesion caida o sin conectar: reconectando");
     mqtt.setServer(hubHost.c_str(), 8883);
     connectHub();
     if (!connected) { delay(3000); return; }
@@ -242,7 +242,9 @@ void loop() {
 
   if (millis() - lastSend >= SEND_MS) {
     lastSend = millis();
-    humedadPiso = map(analogRead(PIN_SONDA), 0, 1023, 30, 90) + (fuga ? 8 : 0);
+    float hora2 = (millis() / 1000.0) / 3600.0;
+    humedadPiso = map(analogRead(PIN_SONDA), 0, 1023, 30, 90)
+                  + 1.5 * sin(hora2 * 0.7) + ((random(0, 21) - 10) / 10.0) + (fuga ? 8 : 0);
     if (humedadPiso > 99) humedadPiso = 99;
     StaticJsonDocument<256> t;
     t["fugaAgua"] = fuga;

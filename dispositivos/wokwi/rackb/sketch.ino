@@ -119,8 +119,7 @@ bool twinArrived = false;
 
 void mqttCb(char* topic, byte* payload, unsigned int len) {
   String t(topic);
-  Serial.printf("[RX] topic=%s len=%u
-", topic, len);
+  Serial.printf("[RX] topic=%s len=%u\n", topic, len);
   if (t.startsWith("$dps/registrations/res/")) {
     dpsStatus = atol(t.c_str() + strlen("$dps/registrations/res/"));
     dpsPayload = String((const char*)payload);
@@ -168,14 +167,12 @@ bool dpsMqttRegister() {
     return false;
   }
   bool sub = mqtt.subscribe("$dps/registrations/res/#");
-  Serial.printf("[DPS] subscribe=%s state=%d
-", sub ? "ok" : "FALLO", mqtt.state());
+  Serial.printf("[DPS] subscribe=%s state=%d\n", sub ? "ok" : "FALLO", mqtt.state());
   StaticJsonDocument<128> reg;
   reg["registrationId"] = DEVICE_ID;
   serializeJson(reg, msgBuf);
   bool pub = mqtt.publish("$dps/registrations/PUT/iotdps-register/?$rid=1", (const char*)msgBuf);
-  Serial.printf("[DPS] register publish=%s state=%d
-", pub ? "ok" : "FALLO", mqtt.state());
+  Serial.printf("[DPS] register publish=%s state=%d\n", pub ? "ok" : "FALLO", mqtt.state());
   uint32_t deadline = millis() + 30000;
   String opId = ""; int rid = 2; unsigned long lastPoll = 0;
   while (millis() < deadline) {
@@ -185,14 +182,12 @@ bool dpsMqttRegister() {
       if (!deserializeJson(d, dpsPayload)) {
         const char* st = d["status"] | "";
         JsonObject rs = d["registrationState"];
-        Serial.printf("[DPS] resp=%ld status=%s
-", dpsStatus, st);
+        Serial.printf("[DPS] resp=%ld status=%s\n", dpsStatus, st);
         if (strcmp(st, "assigned") == 0) {
           hubHost = rs["assignedHub"] | "";
           hubHost.replace("https://", ""); hubHost.replace("/", "");
           mqtt.disconnect();
-          Serial.printf("[DPS] asignado a %s
-", hubHost.c_str());
+          Serial.printf("[DPS] asignado a %s\n", hubHost.c_str());
           return true;
         }
         if (opId == "") { opId = d["operationId"] | ""; if (opId == "") opId = rs["operationId"] | ""; }
@@ -200,8 +195,7 @@ bool dpsMqttRegister() {
           lastPoll = millis();
           String q = "$dps/registrations/GET/iotdps-get-operationstatus/?$rid=" + String(rid++) + "&operationId=" + opId;
           mqtt.publish(q.c_str(), "");
-          Serial.printf("[DPS] sondeo operationId=%s
-", opId.c_str());
+          Serial.printf("[DPS] sondeo operationId=%s\n", opId.c_str());
         }
       }
     }
@@ -279,7 +273,10 @@ void setup() {
 
 void loop() {
   if (WiFi.status() != WL_CONNECTED) { Serial.println("[WIFI] perdido, reinicio"); ESP.restart(); }
-  if (!connected) {
+  // el SAS caduca cada hora: si el hub corta la sesion, se reconecta con un token nuevo
+  if (!connected || !mqtt.connected()) {
+    connected = false;
+    Serial.println("[MQTT] sesion caida o sin conectar: reconectando");
     mqtt.setServer(hubHost.c_str(), 8883);
     connectHub();
     if (!connected) { delay(3000); return; }
@@ -296,7 +293,13 @@ void loop() {
       tempIntake = 22.0 + random(0, 40) / 10.0;
       humedadRack = 48.0 + random(0, 120) / 10.0;
     }
-    float carga = map(analogRead(PIN_POT), 0, 1023, 0, 100) / 100.0;  // 0..1 carga del rack
+    // variacion suave del sitio (los widgets de Wokwi entregan valores fijos):
+    // la carga IT sigue un perfil diurno y el sensor añade su propio ruido (±0,3 °C)
+    float hora = (millis() / 1000.0) / 3600.0;
+    float carga = map(analogRead(PIN_POT), 0, 1023, 0, 100) / 100.0 * 0.6
+                  + 0.25 * (1.0 + cos((hora - 15.0) * 3.14159 / 12.0));
+    tempIntake += 0.30 * sin(hora * 0.9) + ((random(0, 61) - 30) / 100.0);
+    humedadRack += 1.20 * sin(hora * 0.5) + ((random(0, 41) - 20) / 10.0);
     tempExhaust = tempIntake + 8.0 + 4.5 * carga;
     StaticJsonDocument<256> t;
     t["tempIntake"] = (float)round(tempIntake * 100) / 100;

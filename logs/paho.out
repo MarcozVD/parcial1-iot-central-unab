@@ -1,0 +1,196 @@
+[2026-09-24 14:27:20] INFO  hub listo: iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 14:27:25] INFO  MQTT explicito conectado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net:8883 (QoS 1, topic devices/DC-HUMO-08/messages/events/)
+[2026-09-24 14:27:25] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 14:27:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.62, "tsDispositivo": "2026-09-24T19:27:25+00:00"}
+[2026-09-24 14:27:25] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
+[2026-09-24 14:28:11] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.13, "tsDispositivo": "2026-09-24T19:28:10+00:00"}
+[2026-09-24 14:28:56] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.05, "tsDispositivo": "2026-09-24T19:28:56+00:00"}
+[2026-09-24 14:29:46] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.78, "tsDispositivo": "2026-09-24T19:29:41+00:00"}
+[2026-09-24 14:30:38] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.73, "tsDispositivo": "2026-09-24T19:30:31+00:00"}
+[2026-09-24 14:31:31] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.04, "tsDispositivo": "2026-09-24T19:31:23+00:00"}
+[2026-09-24 14:32:22] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.02, "tsDispositivo": "2026-09-24T19:32:16+00:00"}
+[2026-09-24 14:33:07] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.64, "tsDispositivo": "2026-09-24T19:33:07+00:00"}
+[2026-09-24 14:33:52] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.01, "tsDispositivo": "2026-09-24T19:33:52+00:00"}
+[2026-09-24 14:34:46] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.62, "tsDispositivo": "2026-09-24T19:34:37+00:00"}
+[2026-09-24 14:35:35] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.71, "tsDispositivo": "2026-09-24T19:35:32+00:00"}
+[2026-09-24 14:36:20] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.15, "tsDispositivo": "2026-09-24T19:36:20+00:00"}
+[2026-09-24 14:37:05] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.91, "tsDispositivo": "2026-09-24T19:37:05+00:00"}
+[2026-09-24 14:37:57] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.29, "tsDispositivo": "2026-09-24T19:37:50+00:00"}
+[2026-09-24 14:38:42] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.7, "tsDispositivo": "2026-09-24T19:38:42+00:00"}
+[2026-09-24 14:39:35] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.2, "tsDispositivo": "2026-09-24T19:39:27+00:00"}
+[2026-09-24 14:40:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.93, "tsDispositivo": "2026-09-24T19:40:20+00:00"}
+[2026-09-24 14:41:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.3, "tsDispositivo": "2026-09-24T19:41:10+00:00"}
+[2026-09-24 14:41:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.87, "tsDispositivo": "2026-09-24T19:41:55+00:00"}
+[2026-09-24 14:42:41] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.95, "tsDispositivo": "2026-09-24T19:42:40+00:00"}
+[2026-09-24 14:43:26] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.68, "tsDispositivo": "2026-09-24T19:43:26+00:00"}
+[2026-09-24 14:44:11] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.71, "tsDispositivo": "2026-09-24T19:44:11+00:00"}
+[2026-09-24 14:44:56] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.15, "tsDispositivo": "2026-09-24T19:44:56+00:00"}
+[2026-09-24 14:45:41] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.04, "tsDispositivo": "2026-09-24T19:45:41+00:00"}
+[2026-09-24 14:46:34] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.24, "tsDispositivo": "2026-09-24T19:46:26+00:00"}
+[2026-09-24 14:47:19] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.93, "tsDispositivo": "2026-09-24T19:47:19+00:00"}
+[2026-09-24 14:48:04] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.18, "tsDispositivo": "2026-09-24T19:48:04+00:00"}
+[2026-09-24 14:48:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.92, "tsDispositivo": "2026-09-24T19:48:49+00:00"}
+[2026-09-24 14:49:58] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.8, "tsDispositivo": "2026-09-24T19:49:40+00:00"}
+[2026-09-24 14:50:44] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.34, "tsDispositivo": "2026-09-24T19:50:43+00:00"}
+[2026-09-24 14:51:30] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.93, "tsDispositivo": "2026-09-24T19:51:29+00:00"}
+[2026-09-24 14:52:38] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.8, "tsDispositivo": "2026-09-24T19:52:15+00:00"}
+[2026-09-24 14:53:39] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.96, "tsDispositivo": "2026-09-24T19:53:23+00:00"}
+[2026-09-24 14:54:24] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.69, "tsDispositivo": "2026-09-24T19:54:24+00:00"}
+[2026-09-24 14:55:09] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.14, "tsDispositivo": "2026-09-24T19:55:09+00:00"}
+[2026-09-24 14:56:11] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T19:55:54+00:00"}
+[2026-09-24 14:57:05] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.71, "tsDispositivo": "2026-09-24T19:56:56+00:00"}
+[2026-09-24 14:57:51] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.11, "tsDispositivo": "2026-09-24T19:57:50+00:00"}
+[2026-09-24 14:58:38] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.98, "tsDispositivo": "2026-09-24T19:58:38+00:00"}
+[2026-09-24 14:59:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.81, "tsDispositivo": "2026-09-24T19:59:32+00:00"}
+[2026-09-24 15:00:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.76, "tsDispositivo": "2026-09-24T20:00:17+00:00"}
+[2026-09-24 15:01:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.78, "tsDispositivo": "2026-09-24T20:01:02+00:00"}
+[2026-09-24 15:01:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.25, "tsDispositivo": "2026-09-24T20:01:47+00:00"}
+[2026-09-24 15:02:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.01, "tsDispositivo": "2026-09-24T20:02:32+00:00"}
+[2026-09-24 15:03:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T20:03:17+00:00"}
+[2026-09-24 15:04:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.73, "tsDispositivo": "2026-09-24T20:04:02+00:00"}
+[2026-09-24 15:04:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T20:04:47+00:00"}
+[2026-09-24 15:05:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.74, "tsDispositivo": "2026-09-24T20:05:32+00:00"}
+[2026-09-24 15:06:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.06, "tsDispositivo": "2026-09-24T20:06:17+00:00"}
+[2026-09-24 15:07:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.75, "tsDispositivo": "2026-09-24T20:07:02+00:00"}
+[2026-09-24 15:07:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.73, "tsDispositivo": "2026-09-24T20:07:47+00:00"}
+[2026-09-24 15:08:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.97, "tsDispositivo": "2026-09-24T20:08:32+00:00"}
+[2026-09-24 15:09:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.6, "tsDispositivo": "2026-09-24T20:09:17+00:00"}
+[2026-09-24 15:10:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.35, "tsDispositivo": "2026-09-24T20:10:02+00:00"}
+[2026-09-24 15:10:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.62, "tsDispositivo": "2026-09-24T20:10:47+00:00"}
+[2026-09-24 15:11:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.91, "tsDispositivo": "2026-09-24T20:11:32+00:00"}
+[2026-09-24 15:12:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.36, "tsDispositivo": "2026-09-24T20:12:17+00:00"}
+[2026-09-24 15:13:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.06, "tsDispositivo": "2026-09-24T20:13:02+00:00"}
+[2026-09-24 15:13:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.72, "tsDispositivo": "2026-09-24T20:13:47+00:00"}
+[2026-09-24 15:14:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.3, "tsDispositivo": "2026-09-24T20:14:32+00:00"}
+[2026-09-24 15:15:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.97, "tsDispositivo": "2026-09-24T20:15:17+00:00"}
+[2026-09-24 15:16:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.63, "tsDispositivo": "2026-09-24T20:16:02+00:00"}
+[2026-09-24 15:16:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.72, "tsDispositivo": "2026-09-24T20:16:47+00:00"}
+[2026-09-24 15:17:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.36, "tsDispositivo": "2026-09-24T20:17:32+00:00"}
+[2026-09-24 15:18:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.18, "tsDispositivo": "2026-09-24T20:18:17+00:00"}
+[2026-09-24 15:19:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.14, "tsDispositivo": "2026-09-24T20:19:02+00:00"}
+[2026-09-24 15:19:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.3, "tsDispositivo": "2026-09-24T20:19:47+00:00"}
+[2026-09-24 15:20:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.89, "tsDispositivo": "2026-09-24T20:20:32+00:00"}
+[2026-09-24 15:21:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.22, "tsDispositivo": "2026-09-24T20:21:17+00:00"}
+[2026-09-24 15:22:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.32, "tsDispositivo": "2026-09-24T20:22:02+00:00"}
+[2026-09-24 15:22:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.79, "tsDispositivo": "2026-09-24T20:22:47+00:00"}
+[2026-09-24 15:23:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 26.96, "tsDispositivo": "2026-09-24T20:23:32+00:00"}
+[2026-09-24 15:24:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.74, "tsDispositivo": "2026-09-24T20:24:17+00:00"}
+[2026-09-24 15:25:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T20:25:02+00:00"}
+[2026-09-24 15:25:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.92, "tsDispositivo": "2026-09-24T20:25:47+00:00"}
+[2026-09-24 15:26:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.02, "tsDispositivo": "2026-09-24T20:26:32+00:00"}
+[2026-09-24 15:27:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.03, "tsDispositivo": "2026-09-24T20:27:17+00:00"}
+[2026-09-24 15:28:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.67, "tsDispositivo": "2026-09-24T20:28:02+00:00"}
+[2026-09-24 15:28:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.27, "tsDispositivo": "2026-09-24T20:28:47+00:00"}
+[2026-09-24 15:29:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.25, "tsDispositivo": "2026-09-24T20:29:32+00:00"}
+[2026-09-24 15:30:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.62, "tsDispositivo": "2026-09-24T20:30:17+00:00"}
+[2026-09-24 15:31:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.36, "tsDispositivo": "2026-09-24T20:31:02+00:00"}
+[2026-09-24 15:31:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T20:31:47+00:00"}
+[2026-09-24 15:32:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.34, "tsDispositivo": "2026-09-24T20:32:32+00:00"}
+[2026-09-24 15:33:08] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:33:10] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:33:15] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:33:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.0, "tsDispositivo": "2026-09-24T20:33:17+00:00"}
+[2026-09-24 15:33:17] ERROR publish rc=4
+[2026-09-24 15:33:24] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:33:40] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:34:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.27, "tsDispositivo": "2026-09-24T20:34:02+00:00"}
+[2026-09-24 15:34:02] ERROR publish rc=4
+[2026-09-24 15:34:13] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:34:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.02, "tsDispositivo": "2026-09-24T20:34:47+00:00"}
+[2026-09-24 15:34:47] ERROR publish rc=4
+[2026-09-24 15:35:17] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:35:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.35, "tsDispositivo": "2026-09-24T20:35:32+00:00"}
+[2026-09-24 15:35:32] ERROR publish rc=4
+[2026-09-24 15:36:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.58, "tsDispositivo": "2026-09-24T20:36:17+00:00"}
+[2026-09-24 15:36:17] ERROR publish rc=4
+[2026-09-24 15:37:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.01, "tsDispositivo": "2026-09-24T20:37:02+00:00"}
+[2026-09-24 15:37:02] ERROR publish rc=4
+[2026-09-24 15:37:18] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:37:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.07, "tsDispositivo": "2026-09-24T20:37:47+00:00"}
+[2026-09-24 15:37:47] ERROR publish rc=4
+[2026-09-24 15:38:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.1, "tsDispositivo": "2026-09-24T20:38:32+00:00"}
+[2026-09-24 15:38:32] ERROR publish rc=4
+[2026-09-24 15:39:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.91, "tsDispositivo": "2026-09-24T20:39:17+00:00"}
+[2026-09-24 15:39:17] ERROR publish rc=4
+[2026-09-24 15:39:19] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:40:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.15, "tsDispositivo": "2026-09-24T20:40:02+00:00"}
+[2026-09-24 15:40:02] ERROR publish rc=4
+[2026-09-24 15:40:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.77, "tsDispositivo": "2026-09-24T20:40:47+00:00"}
+[2026-09-24 15:40:47] ERROR publish rc=4
+[2026-09-24 15:41:19] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:41:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.022, "tempTecho": 27.2, "tsDispositivo": "2026-09-24T20:41:32+00:00"}
+[2026-09-24 15:41:32] ERROR publish rc=4
+[2026-09-24 15:42:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.04, "tsDispositivo": "2026-09-24T20:42:17+00:00"}
+[2026-09-24 15:42:17] ERROR publish rc=4
+[2026-09-24 15:43:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.15, "tsDispositivo": "2026-09-24T20:43:02+00:00"}
+[2026-09-24 15:43:02] ERROR publish rc=4
+[2026-09-24 15:43:20] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:43:47] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.17, "tsDispositivo": "2026-09-24T20:43:47+00:00"}
+[2026-09-24 15:43:47] ERROR publish rc=4
+[2026-09-24 15:44:32] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.01, "tsDispositivo": "2026-09-24T20:44:32+00:00"}
+[2026-09-24 15:44:32] ERROR publish rc=4
+[2026-09-24 15:45:17] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.97, "tsDispositivo": "2026-09-24T20:45:17+00:00"}
+[2026-09-24 15:45:17] ERROR publish rc=4
+[2026-09-24 15:45:20] INFO  [HUB] CONNECT rc=5 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:46:02] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.14, "tsDispositivo": "2026-09-24T20:46:02+00:00"}
+[2026-09-24 15:46:02] ERROR publish rc=4
+[2026-09-24 15:46:38] INFO  hub listo: iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 15:46:39] INFO  MQTT explicito conectado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net:8883 (QoS 1, SAS nuevo, topic devices/DC-HUMO-08/messages/events/)
+[2026-09-24 15:46:39] INFO  renovando SAS / reconectando al hub
+[2026-09-24 15:46:39] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:46:39] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
+[2026-09-24 15:46:40] INFO  MQTT explicito conectado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net:8883 (QoS 1, SAS nuevo, topic devices/DC-HUMO-08/messages/events/)
+[2026-09-24 15:46:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.72, "tsDispositivo": "2026-09-24T20:46:40+00:00"}
+[2026-09-24 15:46:40] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 15:46:40] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
+[2026-09-24 15:47:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.68, "tsDispositivo": "2026-09-24T20:47:25+00:00"}
+[2026-09-24 15:48:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.95, "tsDispositivo": "2026-09-24T20:48:10+00:00"}
+[2026-09-24 15:48:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.31, "tsDispositivo": "2026-09-24T20:48:55+00:00"}
+[2026-09-24 15:49:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.9, "tsDispositivo": "2026-09-24T20:49:40+00:00"}
+[2026-09-24 15:50:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.31, "tsDispositivo": "2026-09-24T20:50:25+00:00"}
+[2026-09-24 15:51:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.2, "tsDispositivo": "2026-09-24T20:51:10+00:00"}
+[2026-09-24 15:51:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.72, "tsDispositivo": "2026-09-24T20:51:55+00:00"}
+[2026-09-24 15:52:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.3, "tsDispositivo": "2026-09-24T20:52:40+00:00"}
+[2026-09-24 15:53:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.24, "tsDispositivo": "2026-09-24T20:53:25+00:00"}
+[2026-09-24 15:54:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.97, "tsDispositivo": "2026-09-24T20:54:10+00:00"}
+[2026-09-24 15:54:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.02, "tsDispositivo": "2026-09-24T20:54:55+00:00"}
+[2026-09-24 15:55:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.01, "tsDispositivo": "2026-09-24T20:55:40+00:00"}
+[2026-09-24 15:56:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.75, "tsDispositivo": "2026-09-24T20:56:25+00:00"}
+[2026-09-24 15:57:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.74, "tsDispositivo": "2026-09-24T20:57:10+00:00"}
+[2026-09-24 15:57:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.8, "tsDispositivo": "2026-09-24T20:57:55+00:00"}
+[2026-09-24 15:58:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.7, "tsDispositivo": "2026-09-24T20:58:40+00:00"}
+[2026-09-24 15:59:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.99, "tsDispositivo": "2026-09-24T20:59:25+00:00"}
+[2026-09-24 16:00:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.74, "tsDispositivo": "2026-09-24T21:00:10+00:00"}
+[2026-09-24 16:00:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.73, "tsDispositivo": "2026-09-24T21:00:55+00:00"}
+[2026-09-24 16:01:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.06, "tsDispositivo": "2026-09-24T21:01:40+00:00"}
+[2026-09-24 16:02:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.64, "tsDispositivo": "2026-09-24T21:02:25+00:00"}
+[2026-09-24 16:03:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.22, "tsDispositivo": "2026-09-24T21:03:10+00:00"}
+[2026-09-24 16:03:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 27.25, "tsDispositivo": "2026-09-24T21:03:55+00:00"}
+[2026-09-24 16:04:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.66, "tsDispositivo": "2026-09-24T21:04:40+00:00"}
+[2026-09-24 16:05:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.62, "tsDispositivo": "2026-09-24T21:05:25+00:00"}
+[2026-09-24 16:06:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.53, "tsDispositivo": "2026-09-24T21:06:10+00:00"}
+[2026-09-24 16:06:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.28, "tsDispositivo": "2026-09-24T21:06:55+00:00"}
+[2026-09-24 16:07:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.017, "tempTecho": 27.15, "tsDispositivo": "2026-09-24T21:07:40+00:00"}
+[2026-09-24 16:08:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.7, "tsDispositivo": "2026-09-24T21:08:25+00:00"}
+[2026-09-24 16:09:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.18, "tsDispositivo": "2026-09-24T21:09:10+00:00"}
+[2026-09-24 16:09:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.53, "tsDispositivo": "2026-09-24T21:09:55+00:00"}
+[2026-09-24 16:10:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.52, "tsDispositivo": "2026-09-24T21:10:40+00:00"}
+[2026-09-24 16:11:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.63, "tsDispositivo": "2026-09-24T21:11:25+00:00"}
+[2026-09-24 16:12:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.1, "tsDispositivo": "2026-09-24T21:12:10+00:00"}
+[2026-09-24 16:12:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.0, "tsDispositivo": "2026-09-24T21:12:55+00:00"}
+[2026-09-24 16:13:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.27, "tsDispositivo": "2026-09-24T21:13:40+00:00"}
+[2026-09-24 16:14:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.97, "tsDispositivo": "2026-09-24T21:14:25+00:00"}
+[2026-09-24 16:15:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 26.57, "tsDispositivo": "2026-09-24T21:15:10+00:00"}
+[2026-09-24 16:15:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.87, "tsDispositivo": "2026-09-24T21:15:55+00:00"}
+[2026-09-24 16:16:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.66, "tsDispositivo": "2026-09-24T21:16:40+00:00"}
+[2026-09-24 16:17:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.71, "tsDispositivo": "2026-09-24T21:17:25+00:00"}
+[2026-09-24 16:18:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 27.23, "tsDispositivo": "2026-09-24T21:18:10+00:00"}
+[2026-09-24 16:18:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.24, "tsDispositivo": "2026-09-24T21:18:55+00:00"}
+[2026-09-24 16:19:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.63, "tsDispositivo": "2026-09-24T21:19:40+00:00"}
+[2026-09-24 16:20:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 27.1, "tsDispositivo": "2026-09-24T21:20:25+00:00"}
+[2026-09-24 16:21:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 26.79, "tsDispositivo": "2026-09-24T21:21:10+00:00"}
+[2026-09-24 16:21:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.75, "tsDispositivo": "2026-09-24T21:21:55+00:00"}
+[2026-09-24 16:22:40] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.08, "tsDispositivo": "2026-09-24T21:22:40+00:00"}
+[2026-09-24 16:23:25] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 26.73, "tsDispositivo": "2026-09-24T21:23:25+00:00"}
+[2026-09-24 16:24:10] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 27.1, "tsDispositivo": "2026-09-24T21:24:10+00:00"}
+[2026-09-24 16:24:55] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 26.88, "tsDispositivo": "2026-09-24T21:24:55+00:00"}

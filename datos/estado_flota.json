@@ -1,0 +1,87 @@
+{
+  "app": "dcandes1unab",
+  "dispositivos": 10,
+  "conectados": 0,
+  "filas": [
+    {
+      "id": "DC-ACCESO-10",
+      "nombre": "Puerta / control de acceso (puente HTTP)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-AGUA-07",
+      "nombre": "Deteccion de agua bajo piso (Wokwi ESP32 #2)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-AIRE-06",
+      "nombre": "Calidad de aire de sala (IDEAM/datos.gov.co)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-CLIMA-05",
+      "nombre": "Estacion exterior free-cooling (Open-Meteo)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-ENERGIA-09",
+      "nombre": "PDU / energia de fila (replay CSV)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-HUMO-08",
+      "nombre": "Deteccion de humo / incendio (paho MQTT)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-PASILLO-04",
+      "nombre": "Pasillo frio / contencion (Python SDK AMQP)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-RACKA-01",
+      "nombre": "Rack A - Nodo ambiental (simulador nativo)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": true
+    },
+    {
+      "id": "DC-RACKB-02",
+      "nombre": "Rack B - Nodo ambiental (Wokwi ESP32 #1)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    },
+    {
+      "id": "DC-RACKC-03",
+      "nombre": "Rack C - Nodo ambiental (Python SDK MQTT)",
+      "plantilla": "dtmi:unab:dcandes:dcAndesNodo;1",
+      "estado": "provisioned",
+      "conexion": "?",
+      "simulado": false
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+ "DC-ACCESO-10": {
+  "2026-09-24": {
+   "muestras": 84,
+   "variables": {
+    "eventosAcceso": {
+     "recuento": 84,
+     "max": 41.0,
+     "min": 0.0,
+     "promedio": 2.88,
+     "sumatoria": 242.0
+    },
+    "tempPuerta": {
+     "recuento": 84,
+     "max": 24.38,
+     "min": 23.4,
+     "promedio": 23.96
+    }
+   }
+  }
+ },
+ "DC-AIRE-06": {
+  "2026-09-24": {
+   "muestras": 6,
+   "variables": {
+    "pm25": {
+     "recuento": 6,
+     "max": 8.3,
+     "min": 7.6,
+     "promedio": 7.95
+    },
+    "pm10": {
+     "recuento": 6,
+     "max": 8.5,
+     "min": 7.8,
+     "promedio": 8.15
+    },
+    "aqi": {
+     "recuento": 6,
+     "max": 50.0,
+     "min": 50.0,
+     "promedio": 50.0
+    },
+    "co2": {
+     "recuento": 6,
+     "max": 699.6,
+     "min": 694.7,
+     "promedio": 697.15
+    }
+   }
+  }
+ },
+ "DC-CLIMA-05": {
+  "2026-09-24": {
+   "muestras": 7,
+   "variables": {
+    "tempExterior": {
+     "recuento": 7,
+     "max": 26.3,
+     "min": 24.9,
+     "promedio": 25.36
+    },
+    "humedadExterior": {
+     "recuento": 7,
+     "max": 84.0,
+     "min": 73.0,
+     "promedio": 80.14
+    },
+    "lluviaMm": {
+     "recuento": 7,
+     "max": 0.4,
+     "min": 0.1,
+     "promedio": 0.23,
+     "sumatoria": 1.6
+    },
+    "vientoKmh": {
+     "recuento": 7,
+     "max": 7.6,
+     "min": 4.7,
+     "promedio": 6.17
+    },
+    "radiacionSolar": {
+     "recuento": 7,
+     "max": 629.0,
+     "min": 379.0,
+     "promedio": 529.0
+    }
+   }
+  }
+ },
+ "DC-ENERGIA-09": {
+  "2026-09-24": {
+   "muestras": 43,
+   "variables": {
+    "potenciaKw": {
+     "recuento": 43,
+     "max": 5.84,
+     "min": 5.36,
+     "promedio": 5.6,
+     "sumatoria": 240.6
+    },
+    "corrienteA": {
+     "recuento": 43,
+     "max": 26.57,
+     "min": 8.13,
+     "promedio": 24.42,
+     "sumatoria": 1049.97
+    },
+    "factorPotencia": {
+     "recuento": 43,
+     "max": 0.98,
+     "min": 0.95,
+     "promedio": 0.97
+    }
+   }
+  }
+ },
+ "DC-HUMO-08": {
+  "2026-09-24": {
+   "muestras": 109,
+   "variables": {
+    "humo": {
+     "recuento": 109,
+     "max": 0.02,
+     "min": 0.02,
+     "promedio": 0.02
+    },
+    "tempTecho": {
+     "recuento": 109,
+     "max": 27.36,
+     "min": 26.58,
+     "promedio": 26.98
+    }
+   }
+  }
+ },
+ "DC-PASILLO-04": {
+  "2026-09-24": {
+   "muestras": 81,
+   "variables": {
+    "tempPasillo": {
+     "recuento": 81,
+     "max": 20.57,
+     "min": 19.96,
+     "promedio": 20.23
+    },
+    "humedadPasillo": {
+     "recuento": 81,
+     "max": 53.23,
+     "min": 50.25,
+     "promedio": 51.8
+    },
+    "deltaPresionPa": {
+     "recuento": 81,
+     "max": 22.3,
+     "min": 17.4,
+     "promedio": 19.92
+    }
+   }
+  }
+ },
+ "DC-RACKC-03": {
+  "2026-09-24": {
+   "muestras": 158,
+   "variables": {
+    "tempIntake": {
+     "recuento": 158,
+     "max": 22.41,
+     "min": 21.71,
+     "promedio": 22.08
+    },
+    "tempExhaust": {
+     "recuento": 158,
+     "max": 34.21,
+     "min": 32.45,
+     "promedio": 33.33
+    },
+    "humedadRack": {
+     "recuento": 158,
+     "max": 50.97,
+     "min": 46.2,
+     "promedio": 48.42
+    }
+   }
+  }
+ }
+}

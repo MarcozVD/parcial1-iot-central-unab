@@ -20,9 +20,21 @@ SESSION = "iot"
 PROFILE = "C:/Users/mvale/AppData/Local/Temp/edgeprof"
 
 
-def run(args, timeout=120):
+def run(args, timeout=120, tab=None):
     import shutil
     exe = shutil.which("playwright-cli") or "playwright-cli.cmd"
+    if tab is not None:
+        # fija la pestana antes de la operacion: evita que un script del portal
+        # navegue una pestana de Wokwi y destruya el proyecto anonimo
+        base = [exe, f"-s={SESSION}"] if not (exe.lower().endswith(".cmd") or exe.lower().endswith(".bat")) else [exe]
+        try:
+            if base[0].lower().endswith((".cmd", ".bat")):
+                cmd = f'"{base[0]}" -s={SESSION} "tab-select" "{tab}"'
+                subprocess.run(cmd, capture_output=True, text=True, timeout=60, shell=True)
+            else:
+                subprocess.run([exe, f"-s={SESSION}", "tab-select", str(tab)], capture_output=True, text=True, timeout=60)
+        except Exception:
+            pass
     if exe.lower().endswith(".cmd") or exe.lower().endswith(".bat"):
         cmd = f'"{exe}" -s={SESSION} ' + " ".join(f'"{a}"' for a in args)
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, shell=True)
@@ -54,33 +66,39 @@ def main():
     if len(sys.argv) < 2:
         print(__doc__)
         return 1
+    # --tab N (opcional, en cualquier posicion) fija la pestana antes de operar
+    tab = None
+    if "--tab" in sys.argv:
+        i = sys.argv.index("--tab")
+        tab = sys.argv[i + 1]
+        del sys.argv[i:i + 2]
     op = sys.argv[1]
     if op == "eval":
-        out = run(["--raw", "eval", sys.argv[2]])
+        out = run(["--raw", "eval", sys.argv[2]], tab=tab)
         v = parse_value(out)
         print(json.dumps(v, ensure_ascii=False, indent=1) if not isinstance(v, str) else v)
     elif op == "text":
         n = int(sys.argv[2]) if len(sys.argv) > 2 else 4000
-        out = run(["--raw", "eval", "document.body.innerText"])
+        out = run(["--raw", "eval", "document.body.innerText"], tab=tab)
         v = parse_value(out) or ""
         print(v[:n])
     elif op == "js":
         # ejecuta un archivo JS con run-code (async (page) => {...})
-        print(run(["run-code", "--filename", sys.argv[2]], timeout=150))
+        print(run(["run-code", "--filename", sys.argv[2]], timeout=150, tab=tab))
     elif op == "goto":
-        print(run(["goto", sys.argv[2]], timeout=150))
+        print(run(["goto", sys.argv[2]], timeout=150, tab=tab))
     elif op == "click":
-        print(run(["click", sys.argv[2]]))
+        print(run(["click", sys.argv[2]], tab=tab))
     elif op == "fill":
-        print(run(["fill", sys.argv[2], sys.argv[3]]))
+        print(run(["fill", sys.argv[2], sys.argv[3]], tab=tab))
     elif op == "shot":
         js = ("async (page) => { await page.setViewportSize({width:1500,height:950}); "
               "await page.waitForTimeout(1200); "
               f"await page.screenshot({{path: '{sys.argv[2]}'}}); return 'ok'; }}")
-        out = run(["run-code", "--filename"], timeout=5)  # placeholder, se usa el archivo aparte
+        out = run(["run-code", "--filename"], timeout=5, tab=tab)  # placeholder, se usa el archivo aparte
         print(out)
     else:
-        print(run(sys.argv[1:], timeout=180))
+        print(run(sys.argv[1:], timeout=180, tab=tab))
     return 0
 
 

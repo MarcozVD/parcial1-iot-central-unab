@@ -1,0 +1,18 @@
+[2026-09-24 14:27:26] INFO  ingesta HTTPS/REST hacia iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net (api-version=2018-06-30, TLS 443)
+[2026-09-24 14:27:26] INFO  twin REST no disponible (HTTPError); se reintentara al final del ciclo
+[2026-09-24 14:27:28] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)", "pm25": 8.3, "pm10": 8.5, "aqi": 50.0, "co2": 699.6, "tsDispositivo": "2026-09-24T19:27:27+00:00"}
+[2026-09-24 14:27:28] INFO  HTTP 204 aceptado por el hub (mensaje #1)
+[2026-09-24 14:42:41] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)", "pm25": 8.3, "pm10": 8.5, "aqi": 50.0, "co2": 699.4, "tsDispositivo": "2026-09-24T19:42:29+00:00"}
+[2026-09-24 14:42:41] INFO  HTTP 204 aceptado por el hub (mensaje #2)
+[2026-09-24 14:57:46] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)", "pm25": 8.3, "pm10": 8.5, "aqi": 50.0, "co2": 699.3, "tsDispositivo": "2026-09-24T19:57:45+00:00"}
+[2026-09-24 14:57:46] INFO  HTTP 204 aceptado por el hub (mensaje #3)
+[2026-09-24 15:12:50] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)", "pm25": 7.6, "pm10": 7.8, "aqi": 50.0, "co2": 695.0, "tsDispositivo": "2026-09-24T20:12:49+00:00"}
+[2026-09-24 15:12:50] INFO  HTTP 204 aceptado por el hub (mensaje #4)
+[2026-09-24 15:27:52] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)", "pm25": 7.6, "pm10": 7.8, "aqi": 50.0, "co2": 694.9, "tsDispositivo": "2026-09-24T20:27:51+00:00"}
+[2026-09-24 15:27:52] INFO  HTTP 204 aceptado por el hub (mensaje #5)
+[2026-09-24 15:42:54] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)", "pm25": 7.6, "pm10": 7.8, "aqi": 50.0, "co2": 694.7, "tsDispositivo": "2026-09-24T20:42:53+00:00"}
+[2026-09-24 15:42:54] INFO  HTTP 204 aceptado por el hub (mensaje #6)
+[2026-09-24 15:57:56] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)", "pm25": 7.6, "pm10": 7.8, "aqi": 50.0, "co2": 694.6, "tsDispositivo": "2026-09-24T20:57:55+00:00"}
+[2026-09-24 15:57:56] INFO  HTTP 204 aceptado por el hub (mensaje #7)
+[2026-09-24 16:12:58] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T16:00 (America/Bogota, Open-Meteo AQ)", "pm25": 8.8, "pm10": 9.0, "aqi": 62.0, "co2": 701.7, "tsDispositivo": "2026-09-24T21:12:57+00:00"}
+[2026-09-24 16:12:58] INFO  HTTP 204 aceptado por el hub (mensaje #8)

@@ -146,18 +146,25 @@ def main():
     hub = C.hub_de_creds(DEVICE_ID) or registrar_dps(creds["id_scope"], creds["primary_key"])
     bit.info(f"hub listo: {hub}")
 
-    recurso = f"{hub}/devices/{DEVICE_ID}"
-    sas = C.generar_sas(recurso, creds["primary_key"], ttl=3600)
-    username = f"{hub}/{DEVICE_ID}/?api-version={HUB_API}&DeviceClientType=paho-mqtt"
-    cli = mqtt.Client(client_id=DEVICE_ID, protocol=mqtt.MQTTv311)
-    cli.username_pw_set(username, sas)
-    cli.tls_set(cert_reqs=ssl.CERT_REQUIRED)
-    cli.tls_insecure_set(False)
-    cli.on_connect = on_connect_hub
-    cli.on_message = on_message_hub
-    cli.connect(hub, 8883, keepalive=60)
-    cli.loop_start()
-    bit.info(f"MQTT explicito conectado a {hub}:8883 (QoS 1, topic devices/{DEVICE_ID}/messages/events/)")
+    def conectar() -> mqtt.Client:
+        """Conecta (o reconecta) al hub con un SAS nuevo: paho no renueva el token solo."""
+        recurso = f"{hub}/devices/{DEVICE_ID}"
+        sas = C.generar_sas(recurso, creds["primary_key"], ttl=3600)
+        username = f"{hub}/{DEVICE_ID}/?api-version={HUB_API}&DeviceClientType=paho-mqtt"
+        cli = mqtt.Client(client_id=DEVICE_ID, protocol=mqtt.MQTTv311)
+        cli.username_pw_set(username, sas)
+        cli.tls_set(cert_reqs=ssl.CERT_REQUIRED)
+        cli.tls_insecure_set(False)
+        cli.on_connect = on_connect_hub
+        cli.on_message = on_message_hub
+        cli.connect(hub, 8883, keepalive=60)
+        cli.loop_start()
+        bit.info(f"MQTT explicito conectado a {hub}:8883 (QoS 1, SAS nuevo, topic "
+                 f"devices/{DEVICE_ID}/messages/events/)")
+        return cli
+
+    cli = conectar()
+    t_conexion = time.time()
 
     def _salir(*_):
         parar["v"] = True
@@ -165,18 +172,41 @@ def main():
     signal.signal(signal.SIGTERM, _salir)
 
     topic = f"devices/{DEVICE_ID}/messages/events/"
+    fallos = 0
     while not parar["v"]:
         if C.en_pausa(DEVICE_ID):
             bit.info("PAUSA documentada: sin telemetria")
             time.sleep(5)
             continue
+        # el SAS del hub dura 1 h: se renueva a los 45 min o si el cliente se cayo
+        if time.time() - t_conexion > 2700 or not cli.is_connected():
+            bit.info("renovando SAS / reconectando al hub")
+            try:
+                cli.loop_stop()
+                cli.disconnect()
+            except Exception:
+                pass
+            try:
+                cli = conectar()
+                t_conexion = time.time()
+                fallos = 0
+            except Exception as e:
+                bit.error(f"reconexion fallida: {type(e).__name__}: {e}")
+                time.sleep(10)
+                continue
         datos = C.humo(C.hora_actual())
         datos["tsDispositivo"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         carga = json.dumps(datos)
         info = cli.publish(topic, carga, qos=1)
         bit.telemetria(datos, ORIGEN)
         if info.rc != 0:
-            bit.error(f"publish rc={info.rc}")
+            fallos += 1
+            bit.error(f"publish rc={info.rc} (fallo {fallos})")
+            if fallos >= 3:
+                bit.info("tres fallos de publicacion: se fuerza la reconexion")
+                t_conexion = 0
+        else:
+            fallos = 0
         time.sleep(INTERVALO)
 
     cli.loop_stop()

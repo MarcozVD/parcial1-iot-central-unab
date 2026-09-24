@@ -88,3 +88,48 @@ Traceback (most recent call last):
     return self._sock.recv_into(b)
            ^^^^^^^^^^^^^^^^^^^^^^^
 TimeoutError: timed out
+[2026-09-24 14:57:30] INFO  sensor de campo iniciado; destino http://127.0.0.1:8098/telemetria
+[2026-09-24 14:57:31] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 0, 'tempPuerta': 23.68}
+[2026-09-24 14:59:32] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 0, 'tempPuerta': 23.78}
+[2026-09-24 15:01:32] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 0, 'tempPuerta': 24.21}
+[2026-09-24 15:03:32] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 0, 'tempPuerta': 24.33}
+[2026-09-24 15:05:32] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 0, 'tempPuerta': 24.2}
+[2026-09-24 15:07:33] INFO  HTTP 202 puente acepto {'puertaAbierta': True, 'eventosAcceso': 1, 'tempPuerta': 23.81}
+[2026-09-24 15:09:33] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.65}
+[2026-09-24 15:11:33] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.3}
+[2026-09-24 15:13:33] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.14}
+[2026-09-24 15:15:34] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.69}
+[2026-09-24 15:17:34] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.12}
+[2026-09-24 15:19:34] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.2}
+[2026-09-24 15:21:34] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.06}
+[2026-09-24 15:23:35] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.67}
+[2026-09-24 15:25:35] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.03}
+[2026-09-24 15:27:35] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.62}
+[2026-09-24 15:29:35] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.93}
+[2026-09-24 15:31:35] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.16}
+[2026-09-24 15:33:36] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.27}
+[2026-09-24 15:35:36] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.25}
+[2026-09-24 15:37:36] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.58}
+[2026-09-24 15:39:36] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.92}
+[2026-09-24 15:41:37] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.32}
+[2026-09-24 15:43:37] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.58}
+[2026-09-24 15:45:37] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.06}
+[2026-09-24 15:47:37] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.03}
+[2026-09-24 15:49:38] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.25}
+[2026-09-24 15:51:38] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.62}
+[2026-09-24 15:53:38] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 23.66}
+[2026-09-24 15:55:38] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 1, 'tempPuerta': 24.16}
+[2026-09-24 15:57:39] INFO  HTTP 202 puente acepto {'puertaAbierta': True, 'eventosAcceso': 2, 'tempPuerta': 24.21}
+[2026-09-24 15:59:39] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 24.16}
+[2026-09-24 16:01:39] INFO  HTTP 202 puente acepto {'puertaAbierta': True, 'eventosAcceso': 3, 'tempPuerta': 24.27}
+[2026-09-24 16:03:39] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 24.02}
+[2026-09-24 16:05:40] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 23.57}
+[2026-09-24 16:07:40] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 23.63}
+[2026-09-24 16:09:40] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 24.15}
+[2026-09-24 16:11:40] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 23.82}
+[2026-09-24 16:13:41] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 3, 'tempPuerta': 23.72}
+[2026-09-24 16:15:41] INFO  HTTP 202 puente acepto {'puertaAbierta': True, 'eventosAcceso': 4, 'tempPuerta': 24.27}
+[2026-09-24 16:17:41] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 4, 'tempPuerta': 24.01}
+[2026-09-24 16:19:41] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 4, 'tempPuerta': 24.17}
+[2026-09-24 16:21:41] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 4, 'tempPuerta': 24.07}
+[2026-09-24 16:23:42] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 4, 'tempPuerta': 23.71}

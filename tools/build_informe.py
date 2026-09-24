@@ -159,14 +159,24 @@ d.table(["Bloque del panel", "Contenido"], [
 ], widths_mm=[35, 128])
 
 d.h("9. Reglas y alertas", 1)
-d.table(["Regla", "Condición", "Acción"], [
-    ["Temperatura de rack alta", "tempExhaust > 35 °C", "correo + webhook"],
-    ["Humedad de rack fuera de banda", "humedadRack > 60 %HR", "correo"],
-    ["Fuga de agua", "fugaAgua = true", "correo + webhook"],
-    ["Humo detectado", "humo > 0,08 %obs/m", "correo + webhook"],
-    ["Calidad de aire degradada", "pm25 > 35 µg/m³", "correo"],
-    ["Acceso fuera de horario", "puertaAbierta = true", "correo"],
-], widths_mm=[50, 55, 58])
+d.p("La aplicación tiene seis reglas creadas sobre la plantilla Nodo DC-ANDES-1 y habilitadas en la "
+    "plataforma (evidencia E6). Cada regla evalúa una telemetría del modelo contra un umbral operativo y "
+    "dispara una acción de correo electrónico a la cuenta del operador; los umbrales coinciden con los del "
+    "anexo A y con los que publican los nodos.")
+d.table(["#", "Regla (nombre en Central)", "Condición", "Acción", "Id"], [
+    ["1", "Alerta temperatura de rack", "tempExhaust > 35 °C", "correo", "067173ba…"],
+    ["2", "Alerta humedad de rack", "humedadRack > 60 %HR", "correo", "7ac863ed…"],
+    ["3", "Humo detectado en sala", "humo > 0,08 %obs/m", "correo", "6a579d61…"],
+    ["4", "Calidad de aire degradada", "pm25 > 35 µg/m³", "correo", "—"],
+    ["5", "Alerta humedad en piso tecnico", "humedadPiso > 70 %", "correo", "5374af4b…"],
+    ["6", "Exceso de eventos de acceso", "eventosAcceso > 20", "correo", "562cc3a3…"],
+], widths_mm=[8, 52, 45, 20, 38])
+d.bullets([
+    [("Destinatario: ", {"b": 1}), "todas las acciones notifican a mvalera@o365.unab.edu.co (cuenta del operador)."],
+    [("Criterio de diseño: ", {"b": 1}), "las condiciones se definieron sobre telemetrías numéricas para que el umbral sea explicable y trazable al datasheet; los estados booleanos (fuga, puerta) se cubren con los indicadores numéricos asociados (humedad de piso, eventos de acceso)."],
+    [("Verificación: ", {"b": 1}), "la lista de reglas muestra las seis en estado Habilitado (evidencias/06-reglas-6-habilitadas.png)."],
+])
+d.figure(E + "06-reglas-6-habilitadas.png", "Evidencia E6 — las seis reglas de la aplicación, habilitadas.")
 
 d.h("10. Limitaciones percibidas de IoT Central", 1)
 d.bullets([
