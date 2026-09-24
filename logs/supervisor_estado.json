@@ -1,0 +1,42 @@
+{
+ "sdk_mqtt": {
+  "pid": 20532,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:14"
+ },
+ "sdk_ws": {
+  "pid": 36272,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:16"
+ },
+ "paho": {
+  "pid": 30280,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:19"
+ },
+ "api_openmeteo": {
+  "pid": 36340,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:23"
+ },
+ "api_aire": {
+  "pid": 14256,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:25"
+ },
+ "csv_replay": {
+  "pid": 31904,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:27"
+ },
+ "http_bridge": {
+  "pid": 17980,
+  "arranques": 1,
+  "ultimo_arranque": "2026-09-24T14:27:29"
+ },
+ "acceso_campo": {
+  "pid": 14216,
+  "arranques": 3,
+  "ultimo_arranque": "2026-09-24T14:57:30"
+ }
+}

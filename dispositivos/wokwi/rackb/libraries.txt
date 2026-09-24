@@ -1,0 +1,7 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+#
+# DHT22 en ESP32: usar "DHT sensor library for ESPx" (clase DHTesp)
+DHT sensor library for ESPx
+PubSubClient
+ArduinoJson

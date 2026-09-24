@@ -1,0 +1,6 @@
+ts_local,ts_utc,origen,device_id,tsFuente,pm25,pm10,aqi,co2,tsDispositivo
+2026-09-24T14:27:28-05:00,2026-09-24T19:27:28+00:00,API publica de calidad de aire (HTTPS/REST 443),DC-AIRE-06,"2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)",8.3,8.5,50.0,699.6,2026-09-24T19:27:27+00:00
+2026-09-24T14:42:30-05:00,2026-09-24T19:42:30+00:00,API publica de calidad de aire (HTTPS/REST 443),DC-AIRE-06,"2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)",8.3,8.5,50.0,699.4,2026-09-24T19:42:29+00:00
+2026-09-24T14:57:46-05:00,2026-09-24T19:57:46+00:00,API publica de calidad de aire (HTTPS/REST 443),DC-AIRE-06,"2026-09-24T14:00 (America/Bogota, Open-Meteo AQ)",8.3,8.5,50.0,699.3,2026-09-24T19:57:45+00:00
+2026-09-24T15:12:50-05:00,2026-09-24T20:12:50+00:00,API publica de calidad de aire (HTTPS/REST 443),DC-AIRE-06,"2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)",7.6,7.8,50.0,695.0,2026-09-24T20:12:49+00:00
+2026-09-24T15:27:52-05:00,2026-09-24T20:27:52+00:00,API publica de calidad de aire (HTTPS/REST 443),DC-AIRE-06,"2026-09-24T15:00 (America/Bogota, Open-Meteo AQ)",7.6,7.8,50.0,694.9,2026-09-24T20:27:51+00:00

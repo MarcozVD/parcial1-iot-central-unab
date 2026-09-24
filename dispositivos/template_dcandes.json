@@ -1,0 +1,403 @@
+{
+  "@context": [
+    "dtmi:iotcentral:context;2",
+    "dtmi:dtdl:context;2"
+  ],
+  "@id": "dtmi:unab:dcandes:dcAndesNodo;1",
+  "@type": [
+    "ModelDefinition",
+    "DeviceModel"
+  ],
+  "displayName": "Nodo DC-ANDES-1",
+  "description": "Nodo de monitoreo para el centro de datos urbano DC-ANDES-1 (AndesCloud S.A.S.). Plantilla unica de la flota heterogenea: racks, contencion, clima exterior de free-cooling, calidad de aire, deteccion de agua y humo, energia de fila y control de acceso.",
+  "capabilityModel": {
+    "@id": "dtmi:unab:dcandes:DCAndesNodo_v1;1",
+    "@type": "Interface",
+    "displayName": "Nodo DC-ANDES-1",
+    "contents": [
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tsDispositivo;1",
+        "@type": "Telemetry",
+        "displayName": "Marca de tiempo del dispositivo",
+        "name": "tsDispositivo",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tsFuente;1",
+        "@type": "Telemetry",
+        "displayName": "Marca de tiempo de la fuente",
+        "name": "tsFuente",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempIntake;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura intake (rack)",
+        "name": "tempIntake",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempExhaust;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura exhaust (rack)",
+        "name": "tempExhaust",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:humedadRack;1",
+        "@type": [
+          "Telemetry",
+          "Humidity"
+        ],
+        "displayName": "Humedad relativa (rack)",
+        "name": "humedadRack",
+        "schema": "double",
+        "unit": "percent"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempPasillo;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura pasillo frio",
+        "name": "tempPasillo",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:humedadPasillo;1",
+        "@type": [
+          "Telemetry",
+          "Humidity"
+        ],
+        "displayName": "Humedad relativa pasillo",
+        "name": "humedadPasillo",
+        "schema": "double",
+        "unit": "percent"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:deltaPresionPa;1",
+        "@type": "Telemetry",
+        "displayName": "Presion diferencial entre pasillos",
+        "name": "deltaPresionPa",
+        "schema": "double",
+        "unit": "pascal"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempExterior;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura exterior (free-cooling)",
+        "name": "tempExterior",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:humedadExterior;1",
+        "@type": [
+          "Telemetry",
+          "Humidity"
+        ],
+        "displayName": "Humedad exterior",
+        "name": "humedadExterior",
+        "schema": "double",
+        "unit": "percent"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:radiacionSolar;1",
+        "@type": "Telemetry",
+        "displayName": "Radiacion solar global (W/m2)",
+        "name": "radiacionSolar",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:vientoKmh;1",
+        "@type": "Telemetry",
+        "displayName": "Velocidad del viento (km/h)",
+        "name": "vientoKmh",
+        "schema": "double",
+        "unit": "kilometrePerHour"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:lluviaMm;1",
+        "@type": "Telemetry",
+        "displayName": "Precipitacion",
+        "name": "lluviaMm",
+        "schema": "double",
+        "unit": "millimetre"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:pm25;1",
+        "@type": "Telemetry",
+        "displayName": "PM2.5 en sala (ug/m3)",
+        "name": "pm25",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:pm10;1",
+        "@type": "Telemetry",
+        "displayName": "PM10 en sala (ug/m3)",
+        "name": "pm10",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:co2;1",
+        "@type": "Telemetry",
+        "displayName": "CO2 en sala (ppm)",
+        "name": "co2",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:aqi;1",
+        "@type": "Telemetry",
+        "displayName": "Indice de calidad de aire",
+        "name": "aqi",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:humedadPiso;1",
+        "@type": [
+          "Telemetry",
+          "Humidity"
+        ],
+        "displayName": "Humedad de piso tecnico",
+        "name": "humedadPiso",
+        "schema": "double",
+        "unit": "percent"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:fugaAgua;1",
+        "@type": "Telemetry",
+        "displayName": "Fuga de agua detectada",
+        "name": "fugaAgua",
+        "schema": "boolean"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:humo;1",
+        "@type": "Telemetry",
+        "displayName": "Deteccion de humo (indice)",
+        "name": "humo",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempTecho;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura de techo",
+        "name": "tempTecho",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:potenciaKw;1",
+        "@type": "Telemetry",
+        "displayName": "Potencia de fila",
+        "name": "potenciaKw",
+        "schema": "double",
+        "unit": "kilowatt"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:corrienteA;1",
+        "@type": "Telemetry",
+        "displayName": "Corriente de fase",
+        "name": "corrienteA",
+        "schema": "double",
+        "unit": "ampere"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:factorPotencia;1",
+        "@type": "Telemetry",
+        "displayName": "Factor de potencia",
+        "name": "factorPotencia",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:puertaAbierta;1",
+        "@type": "Telemetry",
+        "displayName": "Puerta principal abierta",
+        "name": "puertaAbierta",
+        "schema": "boolean"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:eventosAcceso;1",
+        "@type": "Telemetry",
+        "displayName": "Eventos de acceso acumulados",
+        "name": "eventosAcceso",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:tempPuerta;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "displayName": "Temperatura en acceso",
+        "name": "tempPuerta",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:zona;1",
+        "@type": "Property",
+        "displayName": "Zona del sitio",
+        "name": "zona",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:ubicacion;1",
+        "@type": "Property",
+        "displayName": "Ubicacion",
+        "name": "ubicacion",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:origenEnvio;1",
+        "@type": "Property",
+        "displayName": "Origen de envio",
+        "name": "origenEnvio",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:fabricante;1",
+        "@type": "Property",
+        "displayName": "Fabricante del nodo",
+        "name": "fabricante",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:modelo;1",
+        "@type": "Property",
+        "displayName": "Modelo del nodo",
+        "name": "modelo",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:versionFirmware;1",
+        "@type": "Property",
+        "displayName": "Version de firmware / script",
+        "name": "versionFirmware",
+        "schema": "string"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:intervaloMuestreo;1",
+        "@type": "Property",
+        "displayName": "Intervalo de muestreo (s)",
+        "name": "intervaloMuestreo",
+        "schema": "integer"
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:umbralTemperatura;1",
+        "@type": [
+          "Property",
+          "Initialized"
+        ],
+        "displayName": "Umbral de temperatura (°C)",
+        "initialValue": 27.0,
+        "name": "umbralTemperatura",
+        "schema": "double",
+        "writable": true
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:umbralHumedad;1",
+        "@type": [
+          "Property",
+          "Initialized"
+        ],
+        "displayName": "Umbral de humedad relativa (%)",
+        "initialValue": 60.0,
+        "name": "umbralHumedad",
+        "schema": "double",
+        "writable": true
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:umbralPM25;1",
+        "@type": [
+          "Property",
+          "Initialized"
+        ],
+        "displayName": "Umbral de PM2.5 (ug/m3)",
+        "initialValue": 35.0,
+        "name": "umbralPM25",
+        "schema": "double",
+        "writable": true
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:modoOperacion;1",
+        "@type": [
+          "Property",
+          "Initialized"
+        ],
+        "displayName": "Modo de operacion",
+        "initialValue": "Normal",
+        "name": "modoOperacion",
+        "schema": "string",
+        "writable": true
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:reiniciar;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": "Reiniciar nodo",
+        "name": "reiniciar",
+        "request": {
+          "@type": "CommandPayload",
+          "name": "retardoSegundos",
+          "displayName": "Retardo (s)",
+          "schema": "integer"
+        }
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:setAlerta;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": "Activar baliza de alerta",
+        "name": "setAlerta",
+        "request": {
+          "@type": "CommandPayload",
+          "name": "enabled",
+          "displayName": "Activada",
+          "schema": "boolean"
+        }
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:acuseAlarma;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": "Acusar alarma (ack)",
+        "name": "acuseAlarma",
+        "request": {
+          "@type": "CommandPayload",
+          "name": "alarma",
+          "displayName": "Alarma",
+          "schema": "string"
+        }
+      },
+      {
+        "@id": "dtmi:unab:dcandes:DCAndesNodo_v1:abrirPuerta;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": "Abrir puerta de acceso",
+        "name": "abrirPuerta",
+        "request": {
+          "@type": "CommandPayload",
+          "name": "segundos",
+          "displayName": "Duracion (s)",
+          "schema": "integer"
+        }
+      }
+    ]
+  }
+}

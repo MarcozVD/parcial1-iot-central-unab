@@ -1,0 +1,18 @@
+{
+ "@id": "dtmi:unab:dcandes:testMin2;1",
+ "@type": "Interface",
+ "displayName": "TestMin",
+ "contents": [
+  {
+   "@id": "dtmi:unab:dcandes:testMin2:t1;1",
+   "@type": [
+    "Telemetry",
+    "Temperature"
+   ],
+   "displayName": "T1",
+   "name": "t1",
+   "schema": "double",
+   "unit": "degreeCelsius"
+  }
+ ]
+}

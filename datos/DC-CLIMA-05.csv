@@ -1,0 +1,7 @@
+ts_local,ts_utc,origen,device_id,tsFuente,tempExterior,humedadExterior,lluviaMm,vientoKmh,radiacionSolar,tsDispositivo
+2026-09-24T14:22:40-05:00,2026-09-24T19:22:40+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T14:15 (America/Bogota, Open-Meteo)",24.9,84.0,0.2,7.6,629.0,2026-09-24T19:22:40+00:00
+2026-09-24T14:27:29-05:00,2026-09-24T19:27:29+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T14:15 (America/Bogota, Open-Meteo)",24.9,84.0,0.2,7.6,629.0,2026-09-24T19:27:29+00:00
+2026-09-24T14:42:29-05:00,2026-09-24T19:42:29+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T14:30 (America/Bogota, Open-Meteo)",25.0,84.0,0.2,7.2,606.0,2026-09-24T19:42:29+00:00
+2026-09-24T14:57:43-05:00,2026-09-24T19:57:43+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T14:45 (America/Bogota, Open-Meteo)",26.3,73.0,0.1,5.9,542.0,2026-09-24T19:57:43+00:00
+2026-09-24T15:12:44-05:00,2026-09-24T20:12:44+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T15:00 (America/Bogota, Open-Meteo)",26.0,75.0,0.1,5.4,486.0,2026-09-24T20:12:44+00:00
+2026-09-24T15:27:45-05:00,2026-09-24T20:27:45+00:00,API publica Open-Meteo (puente HTTP -> IoT Central),DC-CLIMA-05,"2026-09-24T15:15 (America/Bogota, Open-Meteo)",25.5,78.0,0.4,4.8,432.0,2026-09-24T20:27:45+00:00

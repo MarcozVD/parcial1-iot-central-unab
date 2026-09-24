@@ -1,0 +1,29 @@
+{
+ "@context": [
+  "dtmi:iotcentral:context;2",
+  "dtmi:dtdl:context;2"
+ ],
+ "@id": "dtmi:unab:dcandes:testMin;1",
+ "@type": [
+  "ModelDefinition",
+  "DeviceModel"
+ ],
+ "capabilityModel": {
+  "@id": "dtmi:unab:dcandes:testMin_if;1",
+  "@type": "Interface",
+  "displayName": "TestMin",
+  "contents": [
+   {
+    "@id": "dtmi:unab:dcandes:testMin_if:t1;1",
+    "@type": [
+     "Telemetry",
+     "Temperature"
+    ],
+    "displayName": "T1",
+    "name": "t1",
+    "schema": "double",
+    "unit": "degreeCelsius"
+   }
+  ]
+ }
+}

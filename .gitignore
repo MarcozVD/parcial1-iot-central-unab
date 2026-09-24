@@ -1,0 +1,11 @@
+.secrets/
+.venv/
+__pycache__/
+*.pyc
+logs/*.log
+logs/flota.json
+logs/templates*.json
+datos/*.db
+wokwi/*/secrets.h
+.env
+dispositivos/wokwi/*/secrets.h

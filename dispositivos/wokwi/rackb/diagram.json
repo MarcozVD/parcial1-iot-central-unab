@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "UNAB - DC-ANDES-1 (AndesCloud)",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -25, "left": 230, "attrs": { "temperature": "22.5", "humidity": "48" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 170, "left": 240, "attrs": { "value": "620" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 110, "left": -80, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "led1", "top": 40, "left": -140, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "yellow", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "esp:2", "r1:1", "blue", [ "h0" ] ],
+    [ "r1:2", "led1:A", "blue", [ "v0" ] ],
+    [ "led1:C", "esp:GND.2", "black", [ "h0" ] ]
+  ]
+}
