@@ -25,4 +25,6 @@ foreach ($p in $procs) {
 }
 Write-Host ""
 Write-Host "procesos detenidos: $detenidos"
+"FIN     $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  procesos detenidos: $detenidos" |
+    Out-File -FilePath "$raiz\logs\flota_sesiones.log" -Append -Encoding utf8
 Write-Host "Los datos ya publicados quedan en Azure IoT Central; los ESP32 virtuales se reconstruyen con docs\05-operacion.md"

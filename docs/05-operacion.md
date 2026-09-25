@@ -1,5 +1,16 @@
 # Operación de la ventana de 4 días (24–27 sep 2026)
 
+## Protocolo con el asistente (dos palabras)
+
+El usuario avisa con **una palabra** y el asistente ejecuta el resto:
+
+| Palabra | Qué hace el asistente | Respuesta esperada |
+|---|---|---|
+| **«para»** | `tools/apagar_flota.ps1`: detiene nodos, supervisor y vigilantes, y deja la bandera `logs/PAUSA_FLOTA` | *«Ya puedes detener la máquina»* + resumen de lo detenido y ventana de datos del día |
+| **«inicia»** | (la máquina ya está encendida) `tools/reanudar_flota.ps1`: levanta supervisor y vigilante, reconstruye los ESP32 virtuales si el navegador se cerró y **registra el arranque** (fecha/hora, nodos vivos, primeras muestras) | *«Flota en marcha»* + estado por nodo y primeras lecturas |
+
+Equivalentes para hacerlo sin el asistente: `tools\PARAR.cmd` y `tools\INICIAR.cmd` (doble clic).
+
 ## Apagar y reanudar la máquina
 
 El parcial pide **cuatro fechas distintas (no tienen que ser consecutivas)** con gráficos; no exige

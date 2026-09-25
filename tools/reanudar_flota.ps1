@@ -36,5 +36,7 @@ Start-Sleep -Seconds 6
 Write-Host ""
 Write-Host "Estado de los nodos locales:"
 & $py "$raiz\tools\watchdog_win.py" --una-vez
+"INICIO  $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  supervisor + watchdog en marcha" |
+    Out-File -FilePath "$raiz\logs\flota_sesiones.log" -Append -Encoding utf8
 Write-Host ""
 Write-Host "Si el navegador se cerro, reconstruye los dos ESP32 virtuales: docs\05-operacion.md"
