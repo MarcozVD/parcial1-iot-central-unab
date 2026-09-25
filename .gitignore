@@ -11,3 +11,4 @@ wokwi/*/secrets.h
 dispositivos/wokwi/*/secrets.h
 logs/supervisor.pid
 logs/PAUSA_FLOTA
+.playwright-cli/
