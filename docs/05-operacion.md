@@ -61,7 +61,17 @@ cd ~/Documents/Parcial1_IoT_Central
 
 # 3) revisar el portal (flota, datos sin procesar, panel, reglas) y capturar evidencias
 python tools/shot.py "https://dcandes1unab.azureiotcentral.com/devices" evidencias/01-flota-10-dispositivos.png
+
+# 4) copia de seguridad del repositorio y los entregables (ZIP en OneDrive, sin credenciales)
+.venv/Scripts/python.exe tools/backup.py
 ```
+
+El repositorio **no tiene remoto**: solo vive en esta máquina. Por eso la rutina diaria termina con
+`tools/backup.py`, que empaqueta el proyecto (código, docs, informes, evidencias, datos y el propio
+histórico de git) en `~/OneDrive/Parcial1_IoT_Central_backup/` excluyendo `.venv` y `.secrets`. El
+ZIP se verifica solo: imprime cuántos archivos lleva y confirma que no haya credenciales dentro. Las
+credenciales del dispositivo no se respaldan a propósito: se vuelven a obtener con
+`tools/fetch_creds.py` (az CLI) cuando haga falta.
 
 Si el supervisor no está corriendo: `tools/start_supervisor.cmd` (o el cronjob de Hermes lo relanza solo,
 cada 10 minutos, con `tools/watchdog_flota.py`).
