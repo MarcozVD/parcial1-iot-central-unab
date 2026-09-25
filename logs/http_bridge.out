@@ -236,3 +236,9 @@ ConnectionAbortedError: [WinError 10053] Se ha anulado una conexión establecida
 [2026-09-24 17:05:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.59, "tsDispositivo": "2026-09-24T22:05:48+00:00"}
 [2026-09-24 17:07:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.77, "tsDispositivo": "2026-09-24T22:07:48+00:00"}
 [2026-09-24 17:07:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.85, "tsDispositivo": "2026-09-24T22:07:48+00:00"}
+[2026-09-24 17:09:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 24.03, "tsDispositivo": "2026-09-24T22:09:48+00:00"}
+[2026-09-24 17:09:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.61, "tsDispositivo": "2026-09-24T22:09:48+00:00"}
+[2026-09-24 17:11:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.76, "tsDispositivo": "2026-09-24T22:11:48+00:00"}
+[2026-09-24 17:11:49] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 24.07, "tsDispositivo": "2026-09-24T22:11:48+00:00"}
+[2026-09-24 17:13:48] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 1, "tempPuerta": 23.69, "tsDispositivo": "2026-09-24T22:13:48+00:00"}
+[2026-09-24 17:13:49] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 2, "tempPuerta": 23.94, "tsDispositivo": "2026-09-24T22:13:49+00:00"}

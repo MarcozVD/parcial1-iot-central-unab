@@ -1,5 +1,30 @@
 # Operación de la ventana de 4 días (24–27 sep 2026)
 
+## Apagar y reanudar la máquina
+
+El parcial pide **cuatro fechas distintas (no tienen que ser consecutivas)** con gráficos; no exige
+una máquina encendida 4 días seguidos. La condición real es que **cada una de las cuatro fechas
+elegidas tenga unas horas de datos** para poder calcular máximo, mínimo, promedio, recuento y
+sumatoria. Con 4–6 h por fecha los gráficos ya son representativos.
+
+Antes de apagar o suspender (opcional, ordena el corte):
+
+```powershell
+powershell -NoProfile -File tools\apagar_flota.ps1
+```
+
+Al volver a encender, un solo comando devuelve todo a su sitio:
+
+```powershell
+powershell -NoProfile -File tools\reanudar_flota.ps1
+```
+
+El script arranca el supervisor y el watchdog (y no duplica nada si ya estaban corriendo), muestra el
+estado de los ocho nodos y recuerda lo único manual: **si el navegador se cerró, hay que reconstruir
+los dos ESP32 virtuales** (sección anterior, ≈5 minutos). El simulador nativo de la plantilla
+(`DC-RACKA-01`) vive en Azure y sigue publicando aunque la máquina esté apagada, por lo que la
+ventana nunca queda vacía — pero un solo nodo no sustenta las comparativas.
+
 ## Rutina diaria
 
 ```bash

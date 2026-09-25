@@ -154,3 +154,6 @@ TimeoutError: timed out
 [2026-09-24 17:03:48] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 23.99}
 [2026-09-24 17:05:48] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 23.59}
 [2026-09-24 17:07:48] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 23.85}
+[2026-09-24 17:09:48] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 23.61}
+[2026-09-24 17:11:49] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 24.07}
+[2026-09-24 17:13:49] INFO  HTTP 202 puente acepto {'puertaAbierta': False, 'eventosAcceso': 2, 'tempPuerta': 23.94}

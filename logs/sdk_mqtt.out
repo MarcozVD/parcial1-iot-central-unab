@@ -317,3 +317,13 @@ null
 [2026-09-24 17:07:49] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.01, "tempExhaust": 32.64, "humedadRack": 44.25, "tsDispositivo": "2026-09-24T22:07:49+00:00"}
 [2026-09-24 17:08:19] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.26, "tempExhaust": 33.64, "humedadRack": 45.21, "tsDispositivo": "2026-09-24T22:08:19+00:00"}
 [2026-09-24 17:08:50] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.26, "tempExhaust": 33.71, "humedadRack": 44.89, "tsDispositivo": "2026-09-24T22:08:49+00:00"}
+[2026-09-24 17:09:20] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 21.87, "tempExhaust": 33.48, "humedadRack": 44.49, "tsDispositivo": "2026-09-24T22:09:20+00:00"}
+[2026-09-24 17:09:50] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 21.74, "tempExhaust": 32.59, "humedadRack": 44.82, "tsDispositivo": "2026-09-24T22:09:50+00:00"}
+[2026-09-24 17:10:20] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.3, "tempExhaust": 33.61, "humedadRack": 44.45, "tsDispositivo": "2026-09-24T22:10:20+00:00"}
+[2026-09-24 17:10:50] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.26, "tempExhaust": 33.43, "humedadRack": 45.66, "tsDispositivo": "2026-09-24T22:10:50+00:00"}
+[2026-09-24 17:11:21] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.19, "tempExhaust": 33.66, "humedadRack": 45.74, "tsDispositivo": "2026-09-24T22:11:20+00:00"}
+[2026-09-24 17:11:51] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 21.89, "tempExhaust": 33.54, "humedadRack": 45.83, "tsDispositivo": "2026-09-24T22:11:51+00:00"}
+[2026-09-24 17:12:21] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.27, "tempExhaust": 33.25, "humedadRack": 45.37, "tsDispositivo": "2026-09-24T22:12:21+00:00"}
+[2026-09-24 17:12:51] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 21.84, "tempExhaust": 32.88, "humedadRack": 45.99, "tsDispositivo": "2026-09-24T22:12:51+00:00"}
+[2026-09-24 17:13:22] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 22.24, "tempExhaust": 33.3, "humedadRack": 45.36, "tsDispositivo": "2026-09-24T22:13:21+00:00"}
+[2026-09-24 17:13:52] TX Python SDK azure-iot-device (MQTT 8883) -> {"tempIntake": 21.71, "tempExhaust": 32.81, "humedadRack": 44.33, "tsDispositivo": "2026-09-24T22:13:52+00:00"}

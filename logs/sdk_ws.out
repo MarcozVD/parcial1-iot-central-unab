@@ -168,3 +168,8 @@ null
 [2026-09-24 17:06:42] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.34, "humedadPasillo": 49.8, "deltaPresionPa": 18.4, "tsDispositivo": "2026-09-24T22:06:42+00:00"}
 [2026-09-24 17:07:43] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.07, "humedadPasillo": 49.35, "deltaPresionPa": 18.1, "tsDispositivo": "2026-09-24T22:07:42+00:00"}
 [2026-09-24 17:08:43] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.34, "humedadPasillo": 50.53, "deltaPresionPa": 17.9, "tsDispositivo": "2026-09-24T22:08:43+00:00"}
+[2026-09-24 17:09:43] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.33, "humedadPasillo": 50.09, "deltaPresionPa": 20.8, "tsDispositivo": "2026-09-24T22:09:43+00:00"}
+[2026-09-24 17:10:43] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.14, "humedadPasillo": 49.71, "deltaPresionPa": 18.1, "tsDispositivo": "2026-09-24T22:10:43+00:00"}
+[2026-09-24 17:11:43] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.46, "humedadPasillo": 49.98, "deltaPresionPa": 19.8, "tsDispositivo": "2026-09-24T22:11:43+00:00"}
+[2026-09-24 17:12:44] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.2, "humedadPasillo": 49.1, "deltaPresionPa": 19.7, "tsDispositivo": "2026-09-24T22:12:43+00:00"}
+[2026-09-24 17:13:44] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.48, "humedadPasillo": 48.89, "deltaPresionPa": 22.1, "tsDispositivo": "2026-09-24T22:13:44+00:00"}
