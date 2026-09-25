@@ -54,3 +54,7 @@
 [2026-09-24 19:57:27] INFO  twin REST no disponible (HTTPError); se reintentara al final del ciclo
 [2026-09-24 19:57:29] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T19:00 (America/Bogota, Open-Meteo AQ)", "pm25": 17.1, "pm10": 17.5, "aqi": 72.0, "co2": 577.1, "tsDispositivo": "2026-09-25T00:57:28+00:00"}
 [2026-09-24 19:57:29] INFO  HTTP 204 aceptado por el hub (mensaje #1)
+[2026-09-24 19:59:06] INFO  ingesta HTTPS/REST hacia iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net (api-version=2018-06-30, TLS 443)
+[2026-09-24 19:59:07] INFO  twin REST no disponible (HTTPError); se reintentara al final del ciclo
+[2026-09-24 19:59:08] TX API publica de calidad de aire (HTTPS/REST 443) -> {"tsFuente": "2026-09-24T19:00 (America/Bogota, Open-Meteo AQ)", "pm25": 17.1, "pm10": 17.5, "aqi": 72.0, "co2": 577.1, "tsDispositivo": "2026-09-25T00:59:08+00:00"}
+[2026-09-24 19:59:08] INFO  HTTP 204 aceptado por el hub (mensaje #1)

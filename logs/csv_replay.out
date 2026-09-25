@@ -174,3 +174,7 @@
 [2026-09-24 19:57:32] INFO  DPS OK -> hub iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
 [2026-09-24 19:57:33] INFO  replay conectado; propiedades: {'zona': 'PDU / energia de fila', 'ubicacion': 'Sala blanca - tablero de fila C (PDU monofasica 32 A)', 'origenEnvio': 'Replay de CSV historico (PDU fila C)', 'fabricante': 'Raritan PX3-5488 + shunt 100 A', 'modelo': 'Replay-CSV/1.0', 'versionFirmware': '1.0.3', 'intervaloMuestreo': 120}
 [2026-09-24 19:57:33] TX Replay de CSV historico (PDU fila C) -> {"tsFuente": "2026-09-20T00:00:00-05:00 (historico PDU, vuelta 1)", "potenciaKw": 5.72, "corrienteA": 25.64, "factorPotencia": 0.97, "tsDispositivo": "2026-09-25T00:57:33+00:00"}
+[2026-09-24 19:59:09] INFO  historico cargado: 720 muestras de historico_pdu_fila.csv
+[2026-09-24 19:59:12] INFO  DPS OK -> hub iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 19:59:12] INFO  replay conectado; propiedades: {'zona': 'PDU / energia de fila', 'ubicacion': 'Sala blanca - tablero de fila C (PDU monofasica 32 A)', 'origenEnvio': 'Replay de CSV historico (PDU fila C)', 'fabricante': 'Raritan PX3-5488 + shunt 100 A', 'modelo': 'Replay-CSV/1.0', 'versionFirmware': '1.0.3', 'intervaloMuestreo': 120}
+[2026-09-24 19:59:13] TX Replay de CSV historico (PDU fila C) -> {"tsFuente": "2026-09-20T00:00:00-05:00 (historico PDU, vuelta 1)", "potenciaKw": 5.72, "corrienteA": 25.64, "factorPotencia": 0.97, "tsDispositivo": "2026-09-25T00:59:12+00:00"}

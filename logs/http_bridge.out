@@ -410,3 +410,7 @@ ConnectionAbortedError: [WinError 10053] Se ha anulado una conexión establecida
 [2026-09-24 19:57:35] INFO  puente conectado y publicando el ciclo de la puerta cada 120 s
 [2026-09-24 19:57:35] INFO  puente HTTP escuchando en http://127.0.0.1:8098/telemetria (sensor de campo)
 [2026-09-24 19:57:35] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 22.47, "tsDispositivo": "2026-09-25T00:57:35+00:00"}
+[2026-09-24 19:59:13] INFO  DPS OK -> hub iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 19:59:15] INFO  puente conectado y publicando el ciclo de la puerta cada 120 s
+[2026-09-24 19:59:15] INFO  puente HTTP escuchando en http://127.0.0.1:8098/telemetria (sensor de campo)
+[2026-09-24 19:59:15] TX Puente HTTP/REST (sensor de campo -> Central) -> {"puertaAbierta": false, "eventosAcceso": 0, "tempPuerta": 22.86, "tsDispositivo": "2026-09-25T00:59:15+00:00"}

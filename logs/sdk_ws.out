@@ -352,3 +352,12 @@ null
 [2026-09-24 19:57:25] INFO  propiedades reportadas: {'zona': 'Pasillo frio / contencion', 'ubicacion': 'Sala blanca - pasillo entre filas A y C', 'origenEnvio': 'Python SDK azure-iot-device (MQTT sobre WebSockets 443)', 'fabricante': 'Dell Edge Gateway 3200 + Sensirion SDP810', 'modelo': 'Nodo-Py-WS/1.0', 'versionFirmware': '1.2.0', 'intervaloMuestreo': 60}
 [2026-09-24 19:57:26] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.14, "humedadPasillo": 46.43, "deltaPresionPa": 16.6, "tsDispositivo": "2026-09-25T00:57:25+00:00"}
 [2026-09-24 19:58:26] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.12, "humedadPasillo": 47.08, "deltaPresionPa": 18.1, "tsDispositivo": "2026-09-25T00:58:26+00:00"}
+[2026-09-24 19:59:00] INFO  DPS (MQTT) id_scope=0ne00FE1F90 registration_id=DC-PASILLO-04 | hub por MQTT/WebSockets=True
+[2026-09-24 19:59:03] INFO  DPS OK en 2.9 s -> hub iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net | estado=assigned | DC-PASILLO-04
+iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+initialAssignment
+null
+[2026-09-24 19:59:05] INFO  MQTT sobre WebSockets (443) conectado a IoT Central
+[2026-09-24 19:59:05] INFO  propiedades reportadas: {'zona': 'Pasillo frio / contencion', 'ubicacion': 'Sala blanca - pasillo entre filas A y C', 'origenEnvio': 'Python SDK azure-iot-device (MQTT sobre WebSockets 443)', 'fabricante': 'Dell Edge Gateway 3200 + Sensirion SDP810', 'modelo': 'Nodo-Py-WS/1.0', 'versionFirmware': '1.2.0', 'intervaloMuestreo': 60}
+[2026-09-24 19:59:05] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 19.95, "humedadPasillo": 47.5, "deltaPresionPa": 16.8, "tsDispositivo": "2026-09-25T00:59:05+00:00"}
+[2026-09-24 20:00:05] TX Python SDK azure-iot-device (MQTT sobre WebSockets 443) -> {"tempPasillo": 20.16, "humedadPasillo": 47.78, "deltaPresionPa": 17.1, "tsDispositivo": "2026-09-25T01:00:05+00:00"}

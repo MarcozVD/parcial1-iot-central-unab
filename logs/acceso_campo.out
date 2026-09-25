@@ -241,3 +241,5 @@ TimeoutError: timed out
 [2026-09-24 19:55:46] ERROR puente no disponible (<urlopen error [WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión>); se reintenta
 [2026-09-24 19:57:33] INFO  sensor de campo iniciado; destino http://127.0.0.1:8098/telemetria
 [2026-09-24 19:57:35] ERROR puente no disponible (<urlopen error [WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión>); se reintenta
+[2026-09-24 19:59:12] INFO  sensor de campo iniciado; destino http://127.0.0.1:8098/telemetria
+[2026-09-24 19:59:14] ERROR puente no disponible (<urlopen error [WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión>); se reintenta

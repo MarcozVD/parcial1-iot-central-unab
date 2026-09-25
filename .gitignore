@@ -9,3 +9,5 @@ datos/*.db
 wokwi/*/secrets.h
 .env
 dispositivos/wokwi/*/secrets.h
+logs/supervisor.pid
+logs/PAUSA_FLOTA

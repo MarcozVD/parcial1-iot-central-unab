@@ -513,3 +513,14 @@
 [2026-09-24 19:57:24] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
 [2026-09-24 19:57:24] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
 [2026-09-24 19:58:09] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.02, "tempTecho": 25.48, "tsDispositivo": "2026-09-25T00:58:09+00:00"}
+[2026-09-24 19:59:02] INFO  hub listo: iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[2026-09-24 19:59:03] INFO  MQTT explicito conectado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net:8883 (QoS 1, SAS nuevo, topic devices/DC-HUMO-08/messages/events/)
+[2026-09-24 19:59:03] INFO  renovando SAS / reconectando al hub
+[2026-09-24 19:59:03] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 19:59:03] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
+[2026-09-24 19:59:04] INFO  MQTT explicito conectado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net:8883 (QoS 1, SAS nuevo, topic devices/DC-HUMO-08/messages/events/)
+[2026-09-24 19:59:04] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 24.98, "tsDispositivo": "2026-09-25T00:59:04+00:00"}
+[2026-09-24 19:59:04] INFO  [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)
+[2026-09-24 19:59:04] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
+[2026-09-24 19:59:49] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 24.76, "tsDispositivo": "2026-09-25T00:59:49+00:00"}
+[2026-09-24 20:00:34] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 25.16, "tsDispositivo": "2026-09-25T01:00:34+00:00"}
