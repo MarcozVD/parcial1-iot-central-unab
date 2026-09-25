@@ -524,3 +524,10 @@
 [2026-09-24 19:59:04] INFO  propiedades reportadas: {'zona': 'Deteccion de humo / incendio (techo sala blanca)', 'ubicacion': 'Sala blanca - losa superior, cerca del VESDA', 'origenEnvio': 'Cliente MQTT explicito (paho, SAS manual)', 'fabricante': 'Siemens FDA241 + ESP32-WROOM', 'modelo': 'Nodo-Paho-MQTT/1.0', 'versionFirmware': '1.1.0', 'intervaloMuestreo': 45}
 [2026-09-24 19:59:49] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 24.76, "tsDispositivo": "2026-09-25T00:59:49+00:00"}
 [2026-09-24 20:00:34] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 25.16, "tsDispositivo": "2026-09-25T01:00:34+00:00"}
+[2026-09-24 20:01:19] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.019, "tempTecho": 25.21, "tsDispositivo": "2026-09-25T01:01:19+00:00"}
+[2026-09-24 20:02:04] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 24.75, "tsDispositivo": "2026-09-25T01:02:04+00:00"}
+[2026-09-24 20:02:49] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 25.18, "tsDispositivo": "2026-09-25T01:02:49+00:00"}
+[2026-09-24 20:03:34] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 24.71, "tsDispositivo": "2026-09-25T01:03:34+00:00"}
+[2026-09-24 20:04:19] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 25.46, "tsDispositivo": "2026-09-25T01:04:19+00:00"}
+[2026-09-24 20:05:04] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.021, "tempTecho": 25.48, "tsDispositivo": "2026-09-25T01:05:04+00:00"}
+[2026-09-24 20:05:49] TX Cliente MQTT explicito (paho, SAS manual) -> {"humo": 0.018, "tempTecho": 25.15, "tsDispositivo": "2026-09-25T01:05:49+00:00"}

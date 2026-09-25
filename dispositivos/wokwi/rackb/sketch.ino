@@ -39,6 +39,7 @@ PubSubClient mqtt(net);
 
 String hubHost;
 bool connected = false, baliza = false;
+int fallos = 0;                 // fallos consecutivos de conexion al hub
 float umbral = 27.0;
 float tempIntake = 22.0, humedadRack = 50.0, tempExhaust = 31.0;
 
@@ -278,8 +279,24 @@ void loop() {
     connected = false;
     Serial.println("[MQTT] sesion caida o sin conectar: reconectando");
     mqtt.setServer(hubHost.c_str(), 8883);
-    connectHub();
-    if (!connected) { delay(3000); return; }
+    if (!connectHub()) {
+      fallos++;
+      int rc = mqtt.state();
+      // rc=4/5 = SAS rechazado (tipico por deriva del reloj del simulador tras horas de
+      // ejecucion): se resincroniza la hora y, si aun asi falla, se reinicia el nodo.
+      if ((rc == 4 || rc == 5) && fallos % 3 == 0) {
+        Serial.println("[NTP] resincronizando hora");
+        configTime(0, 0, "pool.ntp.org", "time.google.com");
+      }
+      if (fallos >= 6) {
+        Serial.println("[MQTT] SAS rechazado de forma persistente: reinicio del nodo");
+        delay(500);
+        ESP.restart();
+      }
+      delay(3000);
+      return;
+    }
+    fallos = 0;
   }
   mqtt.loop();
   applyDesired();

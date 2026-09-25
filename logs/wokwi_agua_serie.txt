@@ -1,30 +1,32 @@
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=202 status=assigning
-[DPS] resp=200 status=assigned
-[DPS] asignado a iotc-ce764639-456d-4e61-9e9c-e64c9a818624.azure-devices.net
+[TX] {"fugaAgua":false,"humedadPiso":41.7} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":40.9} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.3} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.5} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.3} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":40.9} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.2} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.4} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":40.6} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.8} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.4} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":40.6} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.4} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.6} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.2} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.6} (ok)
 [MQTT] sesion caida o sin conectar: reconectando
 [MQTT] conectado al hub (nodo de agua)
-[TX] {"fugaAgua":false,"humedadPiso":39.4} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":39.4} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":40.8} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":39.8} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":39.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41} (ok)
 [TX] {"fugaAgua":false,"humedadPiso":40.3} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":39.2} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":40.3} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":40.6} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42.3} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":40.4} (ok)
 [TX] {"fugaAgua":false,"humedadPiso":40.7} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":39.7} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":40} (ok)
-[TX] {"fugaAgua":false,"humedadPiso":40.1} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":41.7} (ok)
+[TX] {"fugaAgua":false,"humedadPiso":42} (ok)
 

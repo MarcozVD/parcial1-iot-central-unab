@@ -332,3 +332,5 @@ ts_local,ts_utc,origen,device_id,puertaAbierta,eventosAcceso,tempPuerta,tsDispos
 2026-09-24T20:01:15-05:00,2026-09-25T01:01:15+00:00,Puente HTTP/REST (sensor de campo -> Central),DC-ACCESO-10,False,0,23.08,2026-09-25T01:01:15+00:00
 2026-09-24T20:03:15-05:00,2026-09-25T01:03:15+00:00,Puente HTTP/REST (sensor de campo -> Central),DC-ACCESO-10,False,0,22.52,2026-09-25T01:03:15+00:00
 2026-09-24T20:03:15-05:00,2026-09-25T01:03:15+00:00,Puente HTTP/REST (sensor de campo -> Central),DC-ACCESO-10,False,0,22.93,2026-09-25T01:03:15+00:00
+2026-09-24T20:05:15-05:00,2026-09-25T01:05:15+00:00,Puente HTTP/REST (sensor de campo -> Central),DC-ACCESO-10,False,0,22.6,2026-09-25T01:05:15+00:00
+2026-09-24T20:05:15-05:00,2026-09-25T01:05:15+00:00,Puente HTTP/REST (sensor de campo -> Central),DC-ACCESO-10,False,0,22.63,2026-09-25T01:05:15+00:00
