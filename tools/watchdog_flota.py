@@ -16,6 +16,7 @@ import sys
 RAIZ = pathlib.Path(r"C:\Users\mvale\Documents\Parcial1_IoT_Central")
 PY = RAIZ / ".venv" / "Scripts" / "python.exe"
 DIR = RAIZ / "dispositivos" / "python"
+PAUSA = RAIZ / "logs" / "PAUSA_FLOTA"
 
 PS_CONTAR = (
     "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | "
@@ -42,6 +43,9 @@ def arrancar() -> None:
 
 
 def main():
+    # pausa explicita (maquina apagada o ventana cerrada a proposito): no resucitar nada
+    if PAUSA.exists():
+        return 0
     n = supervisores_vivos()
     if n > 0:
         return 0

@@ -25,6 +25,7 @@ PY = RAIZ / ".venv" / "Scripts" / "python.exe"
 PYDIR = RAIZ / "dispositivos" / "python"
 LOGS = RAIZ / "logs"
 ESTADO = RAIZ / "logs" / "supervisor_estado.json"
+PIDFILE = RAIZ / "logs" / "supervisor.pid"
 
 NODOS = [
     ("sdk_mqtt", "dc_sdk_mqtt.py"),
@@ -55,12 +56,62 @@ def estado(procs: dict) -> None:
     ESTADO.write_text(json.dumps(datos, indent=1), encoding="utf-8")
 
 
+def pid_vivo(pid: int) -> bool:
+    salida = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"],
+                            capture_output=True, text=True).stdout
+    return str(pid) in salida
+
+
+def supervisores_ajenos() -> list[int]:
+    """Pids de OTROS supervisores vivos (proceso python con dc_supervisor.py)."""
+    import os
+    ps = ("Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | "
+          "Where-Object { $_.CommandLine -like '*dc_supervisor.py*' } | "
+          "Select-Object -ExpandProperty ProcessId")
+    out = subprocess.run(["powershell", "-NoProfile", "-Command", ps],
+                         capture_output=True, text=True, timeout=90).stdout
+    pids = []
+    for linea in out.split():
+        try:
+            p = int(linea)
+        except ValueError:
+            continue
+        if p != os.getpid():
+            pids.append(p)
+    return pids
+
+
+def tomar_testigo() -> bool:
+    """Escribe el pid propio de forma atomica y desempata por antiguedad.
+
+    Dos lanzadores pueden coincidir (el cronjob de Hermes y reanudar_flota.ps1):
+    sin desempate, ambos arrancan sus ocho nodos y la telemetria se duplica.
+    Regla: gana el supervisor con el pid mas bajo (el que arranco antes); el otro
+    sale sin arrancar nodos. Se comprueba tras una ventana de gracia para que la
+    otra instancia alcance a aparecer.
+    """
+    import os
+
+    with PIDFILE.open("w", encoding="utf-8") as fh:
+        fh.write(f"{os.getpid()}\n")
+    time.sleep(7)  # ventana de gracia: deja aparecer a un lanzador simultaneo
+    otros = supervisores_ajenos()
+    if otros and min(otros) < os.getpid():
+        log(f"otra instancia anterior sigue viva (pid {min(otros)}); esta sale sin arrancar nodos")
+        return False
+    if otros:
+        log(f"hay otra instancia mas reciente (pid {max(otros)}); se ignora")
+    return True
+
+
 def main() -> int:
     if "--estado" in sys.argv:
         print(ESTADO.read_text(encoding="utf-8") if ESTADO.exists() else "sin estado")
         return 0
 
     LOGS.mkdir(parents=True, exist_ok=True)
+    if not tomar_testigo():
+        return 0
     log(f"supervisor iniciado (pid {__import__('os').getpid()}); {len(NODOS)} nodos")
     procs: dict[str, tuple] = {}
 
@@ -106,6 +157,7 @@ def main() -> int:
         if p.poll() is None:
             p.kill()
     log("supervisor detenido")
+    PIDFILE.unlink(missing_ok=True)
     return 0
 
 

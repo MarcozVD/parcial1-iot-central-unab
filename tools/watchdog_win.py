@@ -25,6 +25,7 @@ ESTADO = RAIZ / "logs" / "supervisor_estado.json"
 LOG = RAIZ / "logs" / "watchdog_win.log"
 ARRANQUE = RAIZ / "tools" / "start_supervisor.cmd"
 PY = RAIZ / ".venv" / "Scripts" / "python.exe"
+PAUSA = RAIZ / "logs" / "PAUSA_FLOTA"
 
 
 def log(msg: str) -> None:
@@ -76,9 +77,29 @@ def relanzar() -> None:
     )
 
 
+def supervisor_por_proceso() -> bool:
+    """True si hay algun proceso dc_supervisor.py vivo (aunque el estado sea viejo)."""
+    ps = ("Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | "
+          "Where-Object { $_.CommandLine -like '*dc_supervisor.py*' } | Measure-Object | "
+          "Select-Object -ExpandProperty Count")
+    try:
+        out = subprocess.run(["powershell", "-NoProfile", "-Command", ps],
+                             capture_output=True, text=True, timeout=90).stdout.strip()
+        return int(out.splitlines()[-1]) > 0
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def pasada() -> None:
+    if PAUSA.exists():
+        log("pausa activa (logs/PAUSA_FLOTA): sin vigilancia ni relanzado")
+        return
     ok_sup, detalle_sup = supervisor_vivo()
     ok_csv, detalle_csv = csv_frescos()
+    if not ok_sup and supervisor_por_proceso():
+        # el supervisor acaba de arrancar y aun no reescribio el estado: no es una caida
+        log(f"supervisor en arranque ({detalle_csv}); se espera al siguiente ciclo")
+        return
     if ok_sup and ok_csv:
         log(f"ok: {detalle_sup}; {detalle_csv}")
         return

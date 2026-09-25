@@ -3,6 +3,11 @@
 $raiz = "C:\Users\mvale\Documents\Parcial1_IoT_Central"
 $detenidos = 0
 
+# bandera de pausa: los watchdogs (Hermes y Windows) no reaniman la flota mientras exista
+$pausa = "$raiz\logs\PAUSA_FLOTA"
+"pausa manual $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" | Out-File -FilePath $pausa -Encoding utf8
+Write-Host "pausa marcada en logs\PAUSA_FLOTA (los watchdogs no relanzaran la flota)"
+
 # nodos + supervisor + watchdog: se identifican por linea de comandos del proyecto
 $procs = Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Where-Object {
     $_.CommandLine -like "*Parcial1_IoT_Central*" -and

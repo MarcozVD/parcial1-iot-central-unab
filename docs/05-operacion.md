@@ -7,6 +7,17 @@ una máquina encendida 4 días seguidos. La condición real es que **cada una de
 elegidas tenga unas horas de datos** para poder calcular máximo, mínimo, promedio, recuento y
 sumatoria. Con 4–6 h por fecha los gráficos ya son representativos.
 
+Al parar, `apagar_flota.ps1` deja la bandera `logs/PAUSA_FLOTA`: mientras exista, **ninguno** de los
+dos vigilantes (el cronjob de Hermes y `tools/watchdog_win.py`) relanza nada, así que la flota no se
+"resucita" sola mientras la máquina sigue encendida. `reanudar_flota.ps1` borra la bandera y arranca
+supervisor y vigilante (sin duplicar si ya estaban corriendo).
+
+> Ojo al contar procesos: en una venv creada con `uv` cada proceso Python aparece como **dos**
+> procesos del sistema (lanzador + intérprete, con la misma línea de comandos y PIDs consecutivos).
+> Un supervisor y sus ocho nodos son **18** entradas en `Get-CimInstance`, no un síntoma de duplicado.
+> El supervisor lleva además testigo propio (`logs/supervisor.pid`) y, si dos lanzadores coinciden,
+> **gana el de pid más bajo** y el otro sale sin arrancar nodos.
+
 Antes de apagar o suspender (opcional, ordena el corte):
 
 ```powershell

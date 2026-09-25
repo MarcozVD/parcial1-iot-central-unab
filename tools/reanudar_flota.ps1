@@ -3,6 +3,13 @@
 $raiz = "C:\Users\mvale\Documents\Parcial1_IoT_Central"
 $py = "$raiz\.venv\Scripts\python.exe"
 
+# quitar la bandera de pausa: a partir de aqui los watchdogs vuelven a vigilar
+$pausa = "$raiz\logs\PAUSA_FLOTA"
+if (Test-Path $pausa) {
+    Remove-Item $pausa -Force
+    Write-Host "pausa levantada (logs\PAUSA_FLOTA eliminado)."
+}
+
 # --- supervisor (8 nodos locales) ---
 $sup = Get-CimInstance Win32_Process -Filter "Name='python.exe'" |
     Where-Object { $_.CommandLine -like "*dc_supervisor*" }
