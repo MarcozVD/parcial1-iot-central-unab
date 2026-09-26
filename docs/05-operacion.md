@@ -112,6 +112,36 @@ Detalles que ya costaron tiempo (documentados también en la skill `wokwi-esp32-
 - Las pestañas de fondo **siguen simulando** (verificado): dos simulaciones conviven.
 - El gestor de librerías de Wokwi necesita que se desactive el `MuiBackdrop` y clics por coordenadas.
 
+## Modo remoto (Ubuntu) — desde el 26-sep
+
+Los 7 nodos Python **no** corren en el portátil: corren en la máquina Ubuntu `52.252.133.127`.
+
+```bash
+# arrancar (con la máquina encendida): supervisor + 7 nodos
+ssh -i ~/Downloads/iot_key.pem mvale@52.252.133.127 \
+  "cd ~/Parcial1_IoT_Central && setsid nohup ~/venv_parcial/bin/python3 \
+   dispositivos/python/dc_supervisor_remote.py > logs/supervisor.log 2>&1 < /dev/null &"
+
+# estado
+ssh -i ~/Downloads/iot_key.pem mvale@52.252.133.127 \
+  "tail -3 ~/Parcial1_IoT_Central/logs/supervisor.log"
+
+# parar (antes de apagar la máquina remota)
+ssh -i ~/Downloads/iot_key.pem mvale@52.252.133.127 \
+  "pkill -9 -f '[v]env_parcial'"
+```
+
+Reglas del modo remoto:
+
+- **Los 7 nodos Python van en Ubuntu; los 2 ESP32 van en Wokwi (navegador del portátil).**
+  `DC-RACKB-02` y `DC-AGUA-07` **nunca** se lanzan desde el supervisor: pertenecen a los sketches.
+- **La flota local queda en pausa** (`logs/PAUSA_FLOTA`): si se relanzara, los mismos dispositivos
+  publicarían desde dos sitios a la vez (ya ocurrió el 26-sep entre 14:55 y 15:22).
+- En el patrón de `pkill` se usa `'[v]env_parcial'` (truco del corchete): escribir el nombre tal cual
+  haría que el propio comando de parada coincida con el patrón y se mate a sí mismo.
+- `setsid` + `nohup` + `</dev/null` son necesarios para que el arranque sobreviva al cierre de la sesión
+  SSH; sin eso el proceso muere al terminar el comando.
+
 ## Pausa documentada (hueco en la serie)
 
 `datos/pausa_DC-HUMO-08.json` define la ventana en la que el nodo de humo deja de publicar

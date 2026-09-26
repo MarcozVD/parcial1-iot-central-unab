@@ -1,121 +1,105 @@
 #!/usr/bin/env python3
 """
-dc_supervisor_remote.py - Supervisor de flota para ejecución remota en Linux/Ubuntu.
+dc_supervisor_remote.py - Supervisor de la flota DC-ANDES-1 para la maquina Ubuntu.
 
-Idéntico a dc_supervisor.py pero sin llamadas a PowerShell; usa ps/grep en su lugar.
-Lanza los 8 nodos Python y supervisa que no mueran.
+Mismo diseno que el supervisor local (una entrada por SCRIPT, no por dispositivo):
+cada script de dispositivos/python/ tiene su propio DEVICE_ID fijo en el codigo, asi que
+pasarle un id por argumento no hace nada (error detectado el 26-sep: los procesos
+publicaban todos el mismo dispositivo y peleaban por la conexion del hub).
+
+Vigila cada proceso, lo relanza si muere y respeta la bandera de pausa logs/PAUSA_FLOTA.
 """
 from __future__ import annotations
 
+import os
 import pathlib
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
+PYDIR = RAIZ / "dispositivos" / "python"
 LOGS = RAIZ / "logs"
 LOGS.mkdir(parents=True, exist_ok=True)
 
-NODOS = [
-    ("DC-RACKC-03", 30),    # Rack C, 30 s
-    ("DC-HUMO-08", 45),     # Humo, 45 s
-    ("DC-PASILLO-04", 60),  # Pasillo, 60 s
-    ("DC-CLIMA-05", 900),   # Clima, 15 min
-    ("DC-AIRE-06", 900),    # Aire, 15 min
-    ("DC-ENERGIA-09", 120), # Energía, 2 min
-    ("DC-ACCESO-10", 120),  # Acceso, 2 min
-    ("DC-AGUA-07", 30),     # Agua, 30 s
-]
-
+PAUSA = LOGS / "PAUSA_FLOTA"
 TZ_LOCAL = timezone(timedelta(hours=-5))
 
+# (nombre para el registro, script) - el dispositivo lo fija cada script
+NODOS = [
+    ("sdk_mqtt", "dc_sdk_mqtt.py"),            # DC-RACKC-03   (SDK MQTT/TLS)
+    ("sdk_ws", "dc_sdk_ws.py"),                # DC-PASILLO-04 (SDK WebSocket)
+    ("paho", "dc_paho.py"),                    # DC-HUMO-08    (paho, SAS manual)
+    ("api_openmeteo", "dc_api_openmeteo.py"),  # DC-CLIMA-05
+    ("api_aire", "dc_api_aire.py"),            # DC-AIRE-06
+    ("csv_replay", "dc_csv_replay.py"),        # DC-ENERGIA-09
+    ("http_bridge", "dc_http_bridge.py"),      # DC-ACCESO-10
+    ("acceso_campo", "dc_acceso_sim.py"),      # simulador de campo (alimenta al puente)
+]
 
-def log(msg: str) -> None:
-    """Escribir en el log con timestamp."""
-    ts = datetime.now(tz=TZ_LOCAL).strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{ts}] {msg}")
-    with open(LOGS / "supervisor.log", "a", encoding="utf-8") as f:
-        f.write(f"[{ts}] {msg}\n")
-
-
-def pids_de_nodo(device_id: str) -> list[int]:
-    """Encontrar PIDs de procesos Python que corran este nodo."""
-    try:
-        out = subprocess.run(
-            ["pgrep", "-f", f"dc_paho.py.*{device_id}"],
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
-        return [int(line.strip()) for line in out.stdout.splitlines() if line.strip()]
-    except Exception as e:
-        log(f"error al buscar PID para {device_id}: {e}")
-        return []
+PY = RAIZ.parent / "venv_parcial" / "bin" / "python3"
+if not PY.exists():
+    PY = pathlib.Path(sys.executable)
 
 
-def lanzar_nodo(device_id: str, intervalo: int) -> bool:
-    """Lanzar un nodo con dc_paho.py dentro de la venv."""
-    try:
-        # Usar python de la venv
-        python_exe = RAIZ.parent / "venv_parcial" / "bin" / "python3"
-        if not python_exe.exists():
-            python_exe = sys.executable  # fallback
-        
-        cmd = [
-            str(python_exe),
-            str(RAIZ / "dispositivos" / "python" / "dc_paho.py"),
-            device_id,
-            str(intervalo)
-        ]
-        env = {
-            "PYTHONPATH": str(RAIZ / "dispositivos" / "python"),
-            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        }
-        import os
-        env.update(os.environ)
-        
-        # Capturar output en log del nodo (no DEVNULL, para diagnosticar si falla)
-        nodo_log = LOGS / f"{device_id}.log"
-        with open(nodo_log, "w") as logf:
-            subprocess.Popen(cmd, env=env, stdout=logf, stderr=subprocess.STDOUT)
-        
-        log(f"lanzado {device_id} (intervalo {intervalo} s) -> {nodo_log}")
-        return True
-    except Exception as e:
-        log(f"ERROR: no se pudo lanzar {device_id}: {e}")
-        return False
+def log(texto: str) -> None:
+    marca = datetime.now(tz=TZ_LOCAL).strftime("%Y-%m-%d %H:%M:%S")
+    linea = f"[{marca}] {texto}"
+    print(linea, flush=True)
+    with (LOGS / "supervisor.log").open("a", encoding="utf-8") as f:
+        f.write(linea + "\n")
+
+
+def arrancar(nombre: str, script: str) -> subprocess.Popen:
+    salida = (LOGS / f"{nombre}.out").open("a", encoding="utf-8")
+    env = dict(os.environ)
+    env["PYTHONPATH"] = str(PYDIR)
+    env["PYTHONUNBUFFERED"] = "1"
+    return subprocess.Popen([str(PY), str(PYDIR / script)], cwd=str(PYDIR),
+                            stdout=salida, stderr=subprocess.STDOUT, env=env)
+
+
+def estado(procs: dict) -> None:
+    vivos = sum(1 for p, _, _ in procs.values() if p.poll() is None)
+    log(f"nodos vivos: {vivos}/{len(procs)}")
 
 
 def main() -> int:
-    """Ciclo principal de supervisión."""
-    log("supervisor iniciado (remoto Linux)")
-    
-    # Lanzar todos los nodos
-    for device_id, intervalo in NODOS:
-        lanzar_nodo(device_id, intervalo)
-    
-    log(f"flota de 8 nodos iniciada")
-    
-    # Vigilancia: cada 30 s verificar que sigan vivos
-    try:
-        while True:
-            time.sleep(30)
-            muertos = []
-            for device_id, _ in NODOS:
-                if not pids_de_nodo(device_id):
-                    muertos.append(device_id)
-            
-            if muertos:
-                log(f"ALERTA: nodos muertos: {', '.join(muertos)}")
-                for device_id, intervalo in NODOS:
-                    if device_id in muertos:
-                        lanzar_nodo(device_id, intervalo)
-            else:
-                log(f"vigilancia OK: 8/8 nodos vivos")
-    except KeyboardInterrupt:
-        log("supervisor detenido por usuario")
+    if PAUSA.exists():
+        log(f"pausa activa ({PAUSA.name}); el supervisor no arranca")
         return 0
+
+    log(f"supervisor iniciado (Ubuntu, {len(NODOS)} nodos) - python {PY}")
+    procs: dict[str, tuple[subprocess.Popen, int, str]] = {}
+    for nombre, script in NODOS:
+        p = arrancar(nombre, script)
+        procs[nombre] = (p, 1, datetime.now(tz=TZ_LOCAL).isoformat(timespec="seconds"))
+        log(f"  arrancado {nombre} (pid {p.pid})")
+        time.sleep(2)  # evita rafagas de DPS
+
+    estado(procs)
+    espera = {n: 10 for n, _ in NODOS}
+    while True:
+        time.sleep(15)
+        if PAUSA.exists():
+            log("pausa activa: deteniendo los nodos")
+            for p, _, _ in procs.values():
+                if p.poll() is None:
+                    p.terminate()
+            return 0
+        for nombre, script in NODOS:
+            p, arranques, _ = procs[nombre]
+            if p.poll() is None:
+                espera[nombre] = 10
+            else:
+                log(f"  {nombre} murio (codigo {p.returncode}); relanzando en {espera[nombre]} s")
+                time.sleep(espera[nombre])
+                espera[nombre] = min(60, espera[nombre] * 2)
+                nuevo = arrancar(nombre, script)
+                procs[nombre] = (nuevo, arranques + 1, datetime.now(tz=TZ_LOCAL).isoformat(timespec="seconds"))
+                log(f"  {nombre} reiniciado (pid {nuevo.pid})")
+        estado(procs)
 
 
 if __name__ == "__main__":

@@ -52,6 +52,12 @@ Fechas ya cubiertas: **24 sep** (~6 h) y **25 sep** (~4.5 h).
 Faltan: **2 más de 4 fechas requeridas** (puede ser 26, 27 u otras).
 
 ## Notas técnicas
+- **Corrección posterior (26-sep):** en esta fecha el supervisor remoto tenía un fallo de diseño — lanzaba
+  los nodos con el dispositivo como argumento, cuando en realidad cada script tiene su `DEVICE_ID` fijo y
+  no lee argumentos. Resultado: entre las 15:40 y las 18:37 los procesos publicaban **todos como
+  DC-HUMO-08**, peleando por la conexión del hub. Por eso **solo DC-HUMO-08 tiene datos de esa franja**;
+  el resto de dispositivos queda con hueco en esta fecha (documentado en `docs/bitacora-dia-3.md`).
+  El archivo `docs/bitacora-dia-2.md` se conserva tal cual para dejar rastro del fallo.
 - Windows local mantiene los 2 ESP32 virtuales (Wokwi) y el simulador nativo en Azure
 - Ubuntu remoto hostea los 8 nodos Python (los más voluminosos en datos)
 - Panel + reglas + plantilla siguen igual en Azure IoT Central

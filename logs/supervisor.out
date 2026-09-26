@@ -8,3 +8,4 @@
 [2026-09-25 15:37:49]   arrancado csv_replay (pid 25416)
 [2026-09-25 15:37:51]   arrancado http_bridge (pid 11696)
 [2026-09-25 15:37:53]   arrancado acceso_campo (pid 9864)
+^C
