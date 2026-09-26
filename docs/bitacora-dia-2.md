@@ -52,12 +52,15 @@ Fechas ya cubiertas: **24 sep** (~6 h) y **25 sep** (~4.5 h).
 Faltan: **2 más de 4 fechas requeridas** (puede ser 26, 27 u otras).
 
 ## Notas técnicas
-- **Corrección posterior (26-sep):** en esta fecha el supervisor remoto tenía un fallo de diseño — lanzaba
-  los nodos con el dispositivo como argumento, cuando en realidad cada script tiene su `DEVICE_ID` fijo y
-  no lee argumentos. Resultado: entre las 15:40 y las 18:37 los procesos publicaban **todos como
-  DC-HUMO-08**, peleando por la conexión del hub. Por eso **solo DC-HUMO-08 tiene datos de esa franja**;
-  el resto de dispositivos queda con hueco en esta fecha (documentado en `docs/bitacora-dia-3.md`).
-  El archivo `docs/bitacora-dia-2.md` se conserva tal cual para dejar rastro del fallo.
+- **Cobertura real de esta fecha (revisada el 26-sep):** la flota **local** publicó los 7 dispositivos de
+  15:37 a 23:59 (8 h 22 min, 2 904 filas), así que la fecha está cubierta de sobra. Además, el supervisor
+  remoto (que tenía el fallo de diseño descrito abajo) publicó **solo DC-HUMO-08** entre 15:52 y 18:36
+  (1 737 filas infladas por el bucle de reconexión). Durante esa franja el nodo de humo tuvo dos
+  publicadores simultáneos: sus filas están intercaladas y así queda anotado.
+- **Corrección posterior (26-sep):** el supervisor remoto lanzaba los nodos con el dispositivo como
+  argumento, cuando en realidad cada script tiene su `DEVICE_ID` fijo y no lee argumentos. Ese fue el
+  motivo de que el 25-sep el lado remoto solo alimentara el nodo de humo. Documentado en
+  `docs/bitacora-dia-3.md`. El archivo se conserva tal cual para dejar rastro del fallo.
 - Windows local mantiene los 2 ESP32 virtuales (Wokwi) y el simulador nativo en Azure
 - Ubuntu remoto hostea los 8 nodos Python (los más voluminosos en datos)
 - Panel + reglas + plantilla siguen igual en Azure IoT Central

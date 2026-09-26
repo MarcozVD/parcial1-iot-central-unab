@@ -86,10 +86,11 @@
   del portátil) y se instaló `azure-iot-device` en la venv remota (era el otro motivo de las caídas).
   Verificado después: **8/8 nodos vivos, un CSV por dispositivo y los 7 dispositivos en "Conectado"** con
   marca de tiempo en curso.
-- **Alcance de ese error en la fecha 2 (25 sep):** como el supervisor remoto era el único publicador
-  entre las 15:40 y 18:37 de ese día, **solo DC-HUMO-08 tiene datos de esa franja**; los demás
-  dispositivos quedan con el hueco, tal como se anota en la tabla comparativa del informe. Los registros
-  remotos de ese día se conservan como evidencia del fallo.
+- **Alcance de ese error en la fecha 2 (25 sep):** el supervisor remoto publicó **solo DC-HUMO-08**
+  (1 737 filas entre 15:52 y 18:36, infladas por el bucle de reconexión). Ese día la cobertura buena la
+  dio la flota **local**, que estuvo publicando los 7 dispositivos de 15:37 a 23:59 (8 h 22 min,
+  2 904 filas). Entre 15:52 y 18:36 el nodo de humo tuvo dos publicadores a la vez (local + remoto), así
+  que sus filas de esa franja están intercaladas: es la única salvedad de la fecha.
 - **`pkill` que se mataba a sí mismo:** al filtrar procesos por línea de comandos, el propio comando de
   parada coincidía con el patrón y se suicidaba antes de relanzar. Se separó en dos llamadas
   (parar / arrancar) y se usó el truco del corchete en el patrón.

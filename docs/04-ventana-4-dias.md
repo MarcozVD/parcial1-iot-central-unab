@@ -40,3 +40,18 @@ Generado: 2026-09-24 15:49 · fuente: `datos/*.csv` (series locales de cada nodo
 - La flota mezcla seis intervalos (15 s … 900 s): los recuentos por variable reflejan esa asincronía y son la evidencia directa de que no todos los nodos muestrean igual.
 - Los extremos térmicos coinciden con la franja de mayor carga IT; los meteorológicos con la curva diaria real del feed público.
 - Los eventos de seguridad (fuga, humo, acceso) aparecen como picos discretos y son los que disparan las reglas configuradas en IoT Central.
+## Horas registradas por fecha (corte 26-sep 16:43)
+
+| Fecha | Ventana con datos | Duración | De dónde salieron los datos | Filas |
+|---|---|---|---|---|
+| 24-sep (jue) | 14:04 → 20:05 | **6 h 01 min** | 7 nodos locales (Windows) + 2 ESP32 de Wokwi desde ~17:00 | 1 993 |
+| 25-sep (vie) | 15:37 → 23:59 | **8 h 22 min** | 7 nodos locales; el supervisor remoto duplicó el nodo de humo entre 15:52 y 18:36 | 2 904 (+1 737 remotas de humo) |
+| 26-sep (sáb) | 00:00 → 16:43 | **16 h 43 min** | local hasta 15:22 (venía corriendo desde el 25-sep) y después Ubuntu; ESP32 desde ~15:14 | 5 444 + 715 |
+| **Total** | | **31 h 06 min** | | **12 793** |
+
+- Ninguna fecha baja del mínimo de 4–6 h que pide el taller.
+- Salvedades registradas: el 25-sep el nodo de humo tuvo dos publicadores entre 15:52 y 18:36 (filas
+  intercaladas, no erróneas); el 26-sep hay un hueco de ~15 min (15:22 → 15:37) al pasar del portátil a
+  la máquina Ubuntu y ~10 min del ESP32 del Rack B al reiniciarse la simulación.
+- Los ESP32 de Wokwi y el simulador nativo no escriben CSV local: su cobertura se mide en el portal
+  (última recepción de datos por dispositivo) y en el monitor serie.
