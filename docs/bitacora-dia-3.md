@@ -101,3 +101,27 @@
 - Dejar la flota en marcha y cerrar la fecha 4 con capturas nuevas.
 - Actualizar el informe y el anexo con la tabla comparativa de las 4 fechas (máx/mín/promedio/recuento/sumatoria).
 - Revisar el consumo de mensajes en Cost Management antes del cierre.
+
+## Seguimiento de la tarde (verificación en vivo)
+
+Comprobación hecha a las 16:05 (hora de Bogotá) con la flota en marcha:
+
+| Dispositivo | Intervalo | Último registro | Estado |
+|---|---|---|---|
+| DC-RACKC-03 | 30 s | 16:04:59 | Conectado |
+| DC-HUMO-08 | 45 s | 16:05:10 | Conectado |
+| DC-PASILLO-04 | 60 s | 16:04:28 | Conectado |
+| DC-ACCESO-10 | 120 s | 16:03:36 | Conectado |
+| DC-ENERGIA-09 | 120 s | 16:03:34 | Conectado |
+| DC-CLIMA-05 | 900 s | 15:52:30 | Conectado (siguiente muestra ≈16:07) |
+| DC-AIRE-06 | 900 s | 15:52:30 | Conectado (siguiente muestra ≈16:07) |
+| DC-RACKB-02 (ESP32) | 15 s | — | **cayó en bucle de reconexión** (`[DPS] fallo connect rc=-2`) |
+| DC-AGUA-07 (ESP32) | 30 s | 16:05 | Publicando |
+
+- **Incidencia:** el ESP32 del Rack B quedó atrapado en `[DPS] fallo connect rc=-2` (fallo de conexión
+  del simulador, no del firmware: el nodo de agua, con el mismo código, seguía publicando). Se resolvió
+  **reiniciando la simulación** (wokwi_reiniciar3.js: stop → start); a los ~80 s ya volvía a publicar
+  `[TX] {…} (ok)`. Hueco aproximado: **≈10 minutos** del nodo del Rack B (queda registrado aquí).
+- Lección operativa: si un ESP32 de Wokwi no sale del ciclo de DPS en ~1 minuto, reiniciar la
+  simulación es más rápido que esperar; el proyecto anónimo se conserva siempre que no se navegue la
+  pestaña.
