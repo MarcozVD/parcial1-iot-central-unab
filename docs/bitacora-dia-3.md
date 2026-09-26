@@ -126,3 +126,34 @@ Comprobación hecha a las 16:05 (hora de Bogotá) con la flota en marcha:
 - Lección operativa: si un ESP32 de Wokwi no sale del ciclo de DPS en ~1 minuto, reiniciar la
   simulación es más rápido que esperar; el proyecto anónimo se conserva siempre que no se navegue la
   pestaña.
+
+## Cierre del día — 18:08 (orden del usuario: «para todo»)
+
+- **Servidor Ubuntu:** supervisor + 8 nodos detenidos; verificado **0 procesos** en ejecución.
+- **ESP32 de Wokwi:** las dos simulaciones detenidas en el navegador (botón *Stop*).
+- **Flota local del portátil:** ya estaba en pausa desde las 15:22.
+- **Datos del servidor rescatados al repositorio** antes de apagar la máquina:
+  `datos/remoto/` (7 CSV, 448 KB) y `logs/remoto/` (registros, 413 KB).
+- Registro: `FIN 2026-09-26` en `logs/flota_sesiones.log` (local) y en el del servidor.
+
+### Cobertura final de la fecha (26-sep)
+
+| Origen | Ventana | Horas |
+|---|---|---|
+| Portátil — 7 nodos Python | 00:00 → 15:22 | 15 h 22 |
+| Servidor Ubuntu — 7 nodos Python | 15:37 → 18:08 | 2 h 31 |
+| ESP32 Rack B (Wokwi) | 15:18 → 18:09 | 2 h 51 (hueco de ~10 min al reiniciar) |
+| ESP32 agua (Wokwi) | 15:14 → 16:05 | 0 h 51 |
+| **Fecha completa** | **00:00 → 18:09** | **18 h 09** |
+
+Últimos registros de cada nodo del servidor: 18:07:26 – 18:07:55.
+
+### Hallazgo del cierre (importante)
+
+El nodo de agua **dejó de publicar a las 16:05**, no al final: entró en el mismo bucle
+`[DPS] fallo connect rc=-2` que el Rack B y se quedó ahí ~2 h sin que se notara (el Rack B sí
+publicaba con normalidad y el portal seguía mostrando datos). Es un fallo de red del simulador de
+Wokwi, no del firmware; se detectó al consultar «Última recepción de datos» en el portal.
+**Lección:** durante la ventana hay que mirar la hora de última recepción **de cada dispositivo** en el
+portal (no el estado global de la flota) al menos una vez por hora; el reinicio de la simulación es el
+remedio.
