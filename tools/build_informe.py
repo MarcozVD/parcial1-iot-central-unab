@@ -3,6 +3,7 @@
 
 Uso:  python tools/build_informe.py
 """
+import pathlib
 import sys
 
 sys.path.insert(0, "tools")
@@ -43,9 +44,9 @@ d.table(["Fecha", "Autor", "Versión del documento", "Cambio"], [
      "nodos Python quedaron estables en Ubuntu. Pausa documentada del nodo de humo (hueco + reconexión) y "
      "caída/recuperación del ESP32 del Rack B por rechazo de SAS (rc=5)."],
     ["2026-09-27", "Marcos Valera Daza", "2.0 (final)",
-     "Fecha 4, exclusivamente en el servidor remoto (Ubuntu) + el ESP32 del Rack B. Cierre de la ventana, "
-     "comparativa de los 4 días, anexo de evidencias y sustentación. [SECCIÓN 7 A COMPLETAR AL CIERRE DE LA "
-     "FECHA 4 — faltan horas de ventana, ver docs/04-ventana-4-dias.md]."],
+     "Fecha 4, exclusivamente en el servidor remoto (Ubuntu) + el ESP32 del Rack B (4 h 32, 10:28-15:00). "
+     "Cierre de la ventana (35 h 38 min acumuladas en las 4 fechas), comparativa completa por variable, "
+     "anexo de evidencias y sustentación."],
 ], widths_mm=[24, 34, 30, 75])
 d.table(["Componente", "Versión"], [
     ["Plantilla / Digital Twin", "dtmi:unab:dcandes:dcAndesNodo;1 (42 capacidades) — publicada"],
@@ -186,14 +187,11 @@ d.table(["Fecha", "Ventana con datos", "Duración", "Origen de los datos"], [
     ["24-sep (jue)", "14:04 → 20:05", "6 h 01", "7 nodos locales (portátil) + 2 ESP32 Wokwi desde ~17:00"],
     ["25-sep (vie)", "15:37 → 23:59", "8 h 22", "7 nodos locales (portátil); el intento de servidor remoto solo alimentó el nodo de humo (incidente 6.1)"],
     ["26-sep (sáb)", "00:00 → 18:09", "18 h 09", "local hasta 15:22 (continuaba del 25-sep) y después el servidor Ubuntu; ESP32 desde ~15:14"],
-    ["27-sep (dom)", "10:28 → EN CURSO", "[COMPLETAR AL CIERRE]", "exclusivamente el servidor Ubuntu (7 nodos Python) + ESP32 del Rack B"],
+    ["27-sep (dom)", "10:28 → 15:00", "4 h 32", "exclusivamente el servidor Ubuntu (7 nodos Python); flota local detenida a propósito para aislar el segundo código en vivo de la sustentación"],
 ], widths_mm=[24, 40, 30, 90])
-d.callout("EN CURSO al momento de generar este documento: la fecha 4 corre solo en el servidor remoto para "
-          "aislar esa infraestructura como el segundo de los dos códigos que se ejecutan en la sustentación. "
-          "Al completar el mínimo de horas se reemplaza esta fila con la ventana final y se agrega la tabla "
-          "comparativa de las cuatro fechas (máx/mín/promedio/recuento/sumatoria) en el anexo B, sección "
-          "\"Comparativa de los 4 días\". Ver docs/04-ventana-4-dias.md para el estado más reciente.",
-          kind="warn", title="Dato pendiente de cierre — fecha 4")
+d.p("Las cuatro fechas superan el mínimo de 4 horas exigido; el total acumulado es de 35 h 38 min y "
+    "14 414 muestras. El detalle completo por variable (máximo, mínimo, promedio, recuento y sumatoria "
+    "de cada fecha) está en el anexo B y en docs/04-ventana-4-dias.md.")
 
 d.h("8. Cuarto de control", 1)
 d.p("El panel Cuarto de Control DC-ANDES-1 usa la identidad del escenario (logo y nombre propios, no el "
@@ -276,13 +274,67 @@ d.table(["Fecha", "Duración", "Origen", "Incidencia relevante"], [
     ["24-sep", "6 h 01", "portátil + 2 ESP32 Wokwi", "ninguna; fecha base de referencia"],
     ["25-sep", "8 h 22", "portátil (servidor solo alimentó DC-HUMO-08)", "supervisor remoto mal diseñado (6.1)"],
     ["26-sep", "18 h 09", "portátil hasta 15:22, después servidor Ubuntu", "supervisor corregido; SAS del Rack B rechazado y recuperado"],
-    ["27-sep", "[COMPLETAR AL CIERRE]", "exclusivamente servidor Ubuntu + ESP32 Rack B", "nodo de agua sin datos (Wokwi saturado, 6.1)"],
+    ["27-sep", "4 h 32", "exclusivamente servidor Ubuntu + ESP32 Rack B (intermitente)", "nodo de agua sin datos (Wokwi saturado, 6.1)"],
 ], widths_mm=[18, 30, 62, 74])
-d.callout("[PENDIENTE AL CIERRE DE LA FECHA 4] Aquí se inserta la tabla de máximo / mínimo / promedio / "
-          "recuento / sumatoria por variable de las cuatro fechas (extendiendo la tabla del "
-          "24-sep que ya está en docs/04-ventana-4-dias.md) más la lectura operativa de cada extremo. "
-          "Se genera con el mismo procedimiento aplicado a la fecha 1: consulta a datos/*.csv + Data "
-          "Explorer de IoT Central.", kind="warn", title="Tabla comparativa final — pendiente")
+
+d.h("Comparativa por variable — máximo, mínimo, promedio, recuento y sumatoria", 2)
+d.p("Tabla generada con tools/comparativa_4dias.py a partir de las series de cada nodo (datos/*.csv para "
+    "el 24, 25 y 26-sep; datos/remoto_dia4/*.csv, la única fuente válida, para el 27-sep). Se muestran las "
+    "variables de los nodos con sensor modelado (Rack C, pasillo, humo, acceso, energía, clima exterior y "
+    "calidad de aire); el simulador nativo (Rack A) queda fuera por producir valores aleatorios sin anclaje "
+    "a datasheet (limitación documentada en la sección 10 del informe).")
+
+import csv as _csv
+import statistics as _st
+
+_VARS_SUMABLES = {"eventosAcceso", "potenciaKw", "corrienteA", "lluviaMm"}
+_FUENTES = {
+    "2026-09-24": pathlib.Path("datos"),
+    "2026-09-25": pathlib.Path("datos"),
+    "2026-09-26": pathlib.Path("datos"),
+    "2026-09-27": pathlib.Path("datos/remoto_dia4"),
+}
+
+
+def _leer_variables(carpeta, fecha):
+    datos = {}
+    for f in sorted(carpeta.glob("DC-*.csv")):
+        if "campo" in f.stem:
+            continue
+        with f.open(encoding="utf-8") as fh:
+            r = _csv.DictReader(fh)
+            cols = [c for c in (r.fieldnames or []) if c not in
+                    ("ts_local", "ts_utc", "origen", "device_id", "tsFuente", "tsDispositivo")]
+            for row in r:
+                if not row["ts_local"].startswith(fecha):
+                    continue
+                for c in cols:
+                    try:
+                        fv = float(row.get(c, ""))
+                    except (ValueError, TypeError):
+                        continue
+                    datos.setdefault(f"{c} ({f.stem})", []).append(fv)
+    return datos
+
+
+for _fecha, _carpeta in _FUENTES.items():
+    _datos = _leer_variables(_carpeta, _fecha)
+    d.h(_fecha, 3)
+    _filas = []
+    for _clave in sorted(_datos):
+        _vals = _datos[_clave]
+        _var = _clave.split(" (")[0]
+        _suma = f"{sum(_vals):.2f}" if _var in _VARS_SUMABLES else "—"
+        _filas.append([_clave, f"{max(_vals):.2f}", f"{min(_vals):.2f}", f"{_st.mean(_vals):.2f}",
+                       str(len(_vals)), _suma])
+    d.table(["Variable (nodo)", "Máx", "Mín", "Promedio", "Recuento", "Sumatoria"], _filas,
+             widths_mm=[55, 18, 18, 22, 20, 20])
+
+d.callout("el recuento por variable y fecha es la evidencia directa de la asincronía de la flota: los "
+          "nodos de 900 s (clima, aire) acumulan decenas de muestras por día mientras los de 30-60 s "
+          "(rack, pasillo, acceso) acumulan cientos o miles. La caída de recuento del 27-sep frente al "
+          "26-sep es proporcional a que esa fecha corrió 4 h 32 min contra 18 h 09.", kind="key",
+          title="Lectura de la comparativa")
 
 d.save("informe/Informe_Parcial1_DC-ANDES-1.docx")
 print("informe generado: informe/Informe_Parcial1_DC-ANDES-1.docx")

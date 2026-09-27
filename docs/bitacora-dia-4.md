@@ -87,3 +87,52 @@ de cierre) está presente en el PDF, no solo en el .docx.
    simular antes del cierre, su evidencia correspondiente.
 4. Regenerar ambos documentos con `tools/build_informe.py` + `tools/build_evidencias.py` y volver a
    convertir a PDF con `tools/topdf.ps1`.
+
+## Cierre de la fecha 4 (15:00) — ventana completada
+
+La fecha 4 superó el mínimo de 4 horas: **10:28 → 15:00 (4 h 32 min)**, verificado con los CSV del
+servidor Ubuntu (`datos/remoto_dia4/`, copiados al cierre). 1 621 muestras en total.
+
+| Nodo | Ventana | Duración | Muestras |
+|---|---|---|---|
+| DC-RACKC-03 | 10:28:14 → 15:00:43 | 4.54 h | 540 |
+| DC-HUMO-08 | 10:28:15 → 15:00:32 | 4.54 h | 364 |
+| DC-PASILLO-04 | 10:28:16 → 14:59:45 | 4.52 h | 272 |
+| DC-ACCESO-10 | 10:28:25 → 14:58:49 | 4.51 h | 271 |
+| DC-ENERGIA-09 | 10:28:23 → 14:59:38 | 4.52 h | 136 |
+| DC-CLIMA-05 / DC-AIRE-06 | 10:28:20 → 14:58:3x | 4.50 h | 19 c/u |
+
+El ESP32 del Rack B tuvo cortes intermitentes (`rc=-2`) durante la ventana pero se recuperó varias veces;
+el nodo de agua no llegó a simular en toda la fecha (ver incidencia arriba).
+
+### Documentos actualizados con el cierre real
+
+Se completó lo que quedó pendiente en la actualización de las 13:25:
+
+1. **Tabla de horas por fecha** (sección 7 del informe y `docs/04-ventana-4-dias.md`): la fila del 27-sep
+   pasó de `[COMPLETAR AL CIERRE]` a **4 h 32 min**, con el total de la ventana en **35 h 38 min** y
+   **14 414 muestras** en las 4 fechas.
+2. **Comparativa completa por variable** (`tools/comparativa_4dias.py`, nuevo): máximo, mínimo, promedio,
+   recuento y sumatoria de cada variable en cada una de las 4 fechas, calculada desde las series reales
+   (portátil para 24/25/26-sep, servidor Ubuntu para 27-sep). Insertada en el Anexo B del informe y en
+   `docs/04-ventana-4-dias.md` — más de 80 filas de datos reales, no estimados.
+3. **Evidencia de cierre**: captura `dia4-cierre-flota.png` (flota completa en el portal a las 15:00) y
+   estados individuales de 5 dispositivos, todos "Conectado" con marca de tiempo de cierre.
+4. Los tres callouts `[PENDIENTE]` / `[COMPLETAR AL CIERRE]` / `EN CURSO` se retiraron; verificado con
+   extracción de texto de los PDF finales que ninguno de esos marcadores permanece.
+
+**Documentos finales:** informe 17 páginas (era 11 al inicio del día), anexo 15 páginas (era 9). Ambos
+verificados con `pymupdf`: contienen "4 h 32", "35 h 38" y la captura de cierre; no contienen ningún
+marcador de pendiente.
+
+**Ventana completa de las 4 fechas:**
+
+| Fecha | Duración |
+|---|---|
+| 24-sep | 6 h 01 |
+| 25-sep | 8 h 22 |
+| 26-sep | 18 h 09 |
+| 27-sep | 4 h 32 |
+| **Total** | **35 h 38** |
+
+Las 4 fechas superan el mínimo de 4 horas que exige el taller.

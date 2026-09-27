@@ -87,14 +87,17 @@ d.figure(E + "dia3-panel.png", "Captura 17 — Panel Cuarto de Control con datos
 d.h("4.2 Día 4 (27-sep) — solo servidor remoto + Rack B", 2)
 d.p("Para la fecha 4 se detuvo intencionalmente la flota local: toda la telemetría Python proviene "
     "exclusivamente del servidor Ubuntu, aislando esa infraestructura como el segundo código en vivo de la "
-    "sustentación (el primero es el ESP32 en el navegador).")
+    "sustentación (el primero es el ESP32 en el navegador). La ventana cerró en 4 h 32 min (10:28-15:00), "
+    "por encima del mínimo de 4 horas.")
 d.figure(E + "dia4-portal-flota.png", "Captura 18 — Flota el 27 de septiembre, con los 7 nodos Python publicando solo desde el servidor.")
 d.figure(E + "dia4-datos-rackc.png", "Captura 19 — DC-RACKC-03 (servidor Ubuntu), Conectado, 27/9/2026.")
 d.figure(E + "dia4-datos-humo.png", "Captura 20 — DC-HUMO-08 (servidor Ubuntu), 27/9/2026.")
 d.figure(E + "dia4-wokwi-rackb.png", "Captura 21 — Monitor serie del ESP32 Rack B, 27/9/2026.")
-d.callout("[PENDIENTE AL CIERRE] Cuando la fecha 4 complete el mínimo de horas se añade aquí la captura "
-          "final de cierre (última recepción de datos de cada nodo) y, si el nodo de agua logra simular "
-          "antes del cierre, su evidencia correspondiente.", kind="warn", title="Evidencia de cierre — pendiente")
+d.figure(E + "dia4-cierre-flota.png", "Captura 22 — Cierre de la fecha 4: flota completa en el portal, 27/9/2026 15:00.")
+d.p("El ESP32 del nodo de agua no llegó a simular en esta fecha (Wokwi con los servidores de compilación "
+    "saturados, confirmado con un proyecto nuevo desde cero); el Rack B tuvo cortes intermitentes por el "
+    "mismo motivo. Es una limitación de la plataforma Wokwi, no del sketch, y no afecta la cobertura "
+    "general porque el nodo de agua ya tiene datos completos en las fechas 1 y 3.")
 
 d.h("5. Logs de los nodos (recortes reales)", 1)
 d.p("Los expedientes completos están en logs/. Se incluyen recortes de arranque y de publicación de cada "
