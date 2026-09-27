@@ -32,11 +32,20 @@ d.toc()
 d.h("Historial de versiones", 1)
 d.table(["Fecha", "Autor", "Versión del documento", "Cambio"], [
     ["2026-09-24", "Marcos Valera Daza", "1.0",
-     "Despliegue de la aplicación, plantilla (v1), flota de 10 dispositivos, panel y arranque de la ventana de 4 días."],
-    ["2026-09-25", "Marcos Valera Daza", "1.1", "Primera consulta del Data Explorer y ajuste de umbrales de reglas."],
-    ["2026-09-26", "Marcos Valera Daza", "1.2", "Pausa documentada del nodo de humo (hueco + reconexión) y su evidencia."],
+     "Despliegue de la aplicación, plantilla (v1), flota de 10 dispositivos, panel y reglas. Fecha 1 de la "
+     "ventana: 14:04-20:05 (6 h 01), 7 nodos locales + 2 ESP32 Wokwi desde ~17:00."],
+    ["2026-09-25", "Marcos Valera Daza", "1.1",
+     "Fecha 2: 15:37-23:59 (8 h 22) con la flota local. Primer intento de trasladar los nodos Python a un "
+     "servidor Ubuntu remoto; el supervisor remoto tenía un fallo de diseño (ver sección 6.1) que dejó solo "
+     "el nodo de humo publicando desde ese lado durante la tarde."],
+    ["2026-09-26", "Marcos Valera Daza", "1.2",
+     "Fecha 3: 00:00-18:09 (18 h 09, la más larga). Diagnóstico y corrección del supervisor remoto; los 7 "
+     "nodos Python quedaron estables en Ubuntu. Pausa documentada del nodo de humo (hueco + reconexión) y "
+     "caída/recuperación del ESP32 del Rack B por rechazo de SAS (rc=5)."],
     ["2026-09-27", "Marcos Valera Daza", "2.0 (final)",
-     "Cierre de la ventana, comparativa de los 4 días, anexo de evidencias y sustentación."],
+     "Fecha 4, exclusivamente en el servidor remoto (Ubuntu) + el ESP32 del Rack B. Cierre de la ventana, "
+     "comparativa de los 4 días, anexo de evidencias y sustentación. [SECCIÓN 7 A COMPLETAR AL CIERRE DE LA "
+     "FECHA 4 — faltan horas de ventana, ver docs/04-ventana-4-dias.md]."],
 ], widths_mm=[24, 34, 30, 75])
 d.table(["Componente", "Versión"], [
     ["Plantilla / Digital Twin", "dtmi:unab:dcandes:dcAndesNodo;1 (42 capacidades) — publicada"],
@@ -121,7 +130,7 @@ d.table(["Grupo de capacidades", "Contenido"], [
     ["Telemetría (27)", "ambientales de rack y pasillo, meteorología exterior, calidad de aire, agua, humo, energía y acceso, más las marcas de tiempo de fuente y de dispositivo"],
     ["Propiedades (11)", "7 reportadas de identidad + 4 escribibles: umbralTemperatura, umbralHumedad, umbralPM25 y modoOperacion"],
     ["Comandos (4)", "reiniciar, setAlerta (baliza), acuseAlarma (ack del operador) y abrirPuerta (control de acceso)"],
-    ["Vistas", "Overview y About autogeneradas por dispositivo, con KPIs y gráficos de todas las telemetrías"],
+    ["Vistas de operador", "Overview y About, publicadas sobre la plantilla; Overview agrupa KPIs y gráficos de todas las telemetrías del gemelo, About expone las propiedades editables (evidencia captura dia4-views-plantilla.png)"],
 ], widths_mm=[38, 125])
 
 d.h("6. Asincronía, desconexión y operación en línea", 1)
@@ -137,14 +146,54 @@ d.table(["Nodo", "Intervalo", "Transporte", "Comportamiento observado"], [
     ["DC-CLIMA-05 / DC-AIRE-06", "900 s", "HTTPS + MQTT/REST", "feed externo: valor real con marca de tiempo de la fuente"],
 ], widths_mm=[40, 20, 40, 63])
 
+d.h("6.1 Incidentes operativos de la ventana (desconexión real, no solo simulada)", 1)
+d.p("Además de la pausa programada del nodo de humo, la ventana de cuatro días registró incidentes reales "
+    "de operación distribuida que se documentan aquí porque son la evidencia más directa de asincronía y "
+    "desconexión en condiciones de producción, no de laboratorio controlado.")
+d.table(["Fecha", "Incidente", "Diagnóstico", "Resolución"], [
+    ["25-sep", "El supervisor del servidor Ubuntu lanzaba los 7 scripts con el dispositivo como argumento",
+     "Cada script tiene su DEVICE_ID fijo en el código y no lee argumentos: los 7 procesos eran en realidad "
+     "el mismo script (DC-HUMO-08) peleando por la única conexión del hub",
+     "Reescrito el supervisor con una entrada por script (mismo diseño que el supervisor local); verificado "
+     "después con 8/8 procesos vivos y un CSV por dispositivo"],
+    ["26-sep", "Doble publicación de los mismos 7 dispositivos desde el portátil y desde Ubuntu (14:55-15:22)",
+     "El vigilante local relanzó la flota sin que el servidor remoto estuviera aún desactivado",
+     "Flota local detenida y bandera de pausa (logs/PAUSA_FLOTA) para que los vigilantes no la revivan "
+     "mientras el servidor remoto sea la fuente activa"],
+    ["26/27-sep", "El ESP32 del Rack B quedó en bucle de reconexión (rc=5 y luego rc=-2)",
+     "rc=5: SAS rechazado por deriva del reloj del simulador tras varias horas corriendo. rc=-2: fallo de "
+     "red del simulador de Wokwi",
+     "Firmware actualizado con resincronización de hora y reinicio automático a los 6 fallos consecutivos; "
+     "en caliente, reiniciar la simulación restablece la publicación en <90 s"],
+    ["27-sep", "El ESP32 del nodo de agua no llegó a compilar (\u201cBuild Servers Busy\u201d)",
+     "Cola de compilación del plan gratuito de Wokwi saturada al tener dos proyectos ESP32 simulando a la "
+     "vez; se descartó que fuera un problema del proyecto probando con un sketch nuevo desde cero",
+     "Limitación de plataforma, no del sketch: el nodo de agua ya tiene cobertura completa en las fechas 1 "
+     "y 3; en la fecha 4 la flota queda con 9 de 10 orígenes activos"],
+], widths_mm=[16, 45, 51, 51])
+d.callout("estos cuatro incidentes se dejan documentados a propósito: el taller pide mostrar desconexión y "
+          "reconexión reales, y una migración de infraestructura a mitad de la ventana con sus fallos y "
+          "correcciones es evidencia más fuerte que una pausa puramente programada.", kind="key",
+          title="Por qué se documentan los fallos y no solo el resultado final")
+
 d.h("7. Ventana de 4 días no continuos", 1)
 d.p("La ventana comprende el 24, 25, 26 y 27 de septiembre de 2026. Para cada día y variable se calculan "
     "máximo, mínimo, promedio, recuento y sumatoria (esta última cuando aporta: energía, lluvia y eventos de "
     "acceso). La comparativa se genera desde el Data Explorer de IoT Central y desde las series locales que "
     "cada nodo escribe en datos/; el anexo B contiene las tablas completas y la lectura operativa de cada "
     "extremo.")
-d.callout("los cuatro días se cierran el 27 de septiembre; este documento se actualiza con la comparativa "
-          "final y la lectura operativa de máximos y mínimos.", kind="warn", title="Documento vivo")
+d.table(["Fecha", "Ventana con datos", "Duración", "Origen de los datos"], [
+    ["24-sep (jue)", "14:04 → 20:05", "6 h 01", "7 nodos locales (portátil) + 2 ESP32 Wokwi desde ~17:00"],
+    ["25-sep (vie)", "15:37 → 23:59", "8 h 22", "7 nodos locales (portátil); el intento de servidor remoto solo alimentó el nodo de humo (incidente 6.1)"],
+    ["26-sep (sáb)", "00:00 → 18:09", "18 h 09", "local hasta 15:22 (continuaba del 25-sep) y después el servidor Ubuntu; ESP32 desde ~15:14"],
+    ["27-sep (dom)", "10:28 → EN CURSO", "[COMPLETAR AL CIERRE]", "exclusivamente el servidor Ubuntu (7 nodos Python) + ESP32 del Rack B"],
+], widths_mm=[24, 40, 30, 90])
+d.callout("EN CURSO al momento de generar este documento: la fecha 4 corre solo en el servidor remoto para "
+          "aislar esa infraestructura como el segundo de los dos códigos que se ejecutan en la sustentación. "
+          "Al completar el mínimo de horas se reemplaza esta fila con la ventana final y se agrega la tabla "
+          "comparativa de las cuatro fechas (máx/mín/promedio/recuento/sumatoria) en el anexo B, sección "
+          "\"Comparativa de los 4 días\". Ver docs/04-ventana-4-dias.md para el estado más reciente.",
+          kind="warn", title="Dato pendiente de cierre — fecha 4")
 
 d.h("8. Cuarto de control", 1)
 d.p("El panel Cuarto de Control DC-ANDES-1 usa la identidad del escenario (logo y nombre propios, no el "
@@ -222,6 +271,18 @@ d.h("Anexo B — Evidencias y comparativa de los 4 días", 1)
 d.p("Las capturas del portal (flota, datos sin procesar de cada origen, panel, reglas, estados "
     "Connected/Disconnected), los logs de los dos códigos que se ejecutan en vivo y las tablas de la "
     "comparativa de cuatro días se adjuntan en el anexo de evidencias (informe/Evidencias_Parcial1.docx).")
+d.h("Comparativa de los 4 días — estado por fecha", 2)
+d.table(["Fecha", "Duración", "Origen", "Incidencia relevante"], [
+    ["24-sep", "6 h 01", "portátil + 2 ESP32 Wokwi", "ninguna; fecha base de referencia"],
+    ["25-sep", "8 h 22", "portátil (servidor solo alimentó DC-HUMO-08)", "supervisor remoto mal diseñado (6.1)"],
+    ["26-sep", "18 h 09", "portátil hasta 15:22, después servidor Ubuntu", "supervisor corregido; SAS del Rack B rechazado y recuperado"],
+    ["27-sep", "[COMPLETAR AL CIERRE]", "exclusivamente servidor Ubuntu + ESP32 Rack B", "nodo de agua sin datos (Wokwi saturado, 6.1)"],
+], widths_mm=[18, 30, 62, 74])
+d.callout("[PENDIENTE AL CIERRE DE LA FECHA 4] Aquí se inserta la tabla de máximo / mínimo / promedio / "
+          "recuento / sumatoria por variable de las cuatro fechas (extendiendo la tabla del "
+          "24-sep que ya está en docs/04-ventana-4-dias.md) más la lectura operativa de cada extremo. "
+          "Se genera con el mismo procedimiento aplicado a la fecha 1: consulta a datos/*.csv + Data "
+          "Explorer de IoT Central.", kind="warn", title="Tabla comparativa final — pendiente")
 
 d.save("informe/Informe_Parcial1_DC-ANDES-1.docx")
 print("informe generado: informe/Informe_Parcial1_DC-ANDES-1.docx")

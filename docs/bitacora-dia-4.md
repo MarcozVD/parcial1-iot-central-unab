@@ -55,4 +55,35 @@ ESP32 + simulador nativo). El nodo de agua ya tiene cobertura de sobra en las fe
 | `dia4-datos-humo.png` | datos sin procesar de DC-HUMO-08 (Ubuntu) |
 | `dia4-datos-rackb.png` | datos sin procesar de DC-RACKB-02 (ESP32) |
 | `dia4-wokwi-rackb.png` | monitor serie del ESP32 del Rack B publicando en vivo |
-EOF
+| `dia4-views-plantilla.png` | Views de operador de la plantilla (Overview, About) — requisito de la sección 4 del taller |
+
+## Actualización de los documentos entregables (13:25, mientras la fecha 4 termina de acumular horas)
+
+Se detectó que `Informe_Parcial1_DC-ANDES-1.docx/pdf` y `Evidencias_Parcial1_DC-ANDES-1.docx/pdf` estaban
+congelados en el estado del 24-sep (generados a las 17:03/17:08 de ese día) y no reflejaban nada de los
+días 2, 3 y 4: la migración a Ubuntu, los incidentes y su corrección, ni las evidencias nuevas. Se
+actualizaron ambos generadores (`tools/build_informe.py`, `tools/build_evidencias.py`) y se regeneraron:
+
+- **Historial de versiones** con el resumen real de cada fecha (horas, origen de los datos, qué cambió).
+- **Sección 6.1 nueva** — "Incidentes operativos de la ventana": los 4 fallos reales (supervisor remoto
+  mal diseñado, doble publicación, SAS del Rack B, Wokwi saturado) con diagnóstico y resolución. Es
+  evidencia más fuerte de desconexión/reconexión real que la pausa puramente programada.
+- **Sección 5** — Views de operador documentadas (Overview, About), con su captura.
+- **Sección 7 y Anexo B** — tabla de horas por fecha (24: 6h01, 25: 8h22, 26: 18h09) con una fila y un
+  callout explícitos de **"[COMPLETAR AL CIERRE]"** para la fecha 4, y una tabla de incidencias por fecha.
+- **Anexo de evidencias** — nuevas secciones 3.3 (Views) y 4 (días 2-4: capturas dia3-* y dia4-*), con un
+  callout de cierre pendiente para cuando termine la ventana de hoy.
+- Matriz de cumplimiento actualizada para citar las capturas y secciones nuevas.
+
+Ambos documentos se regeneraron a PDF sin errores: informe 13 páginas (antes 11), anexo 14 páginas
+(antes 9). Verificado con extracción de texto que el contenido nuevo (historial, incidentes, placeholder
+de cierre) está presente en el PDF, no solo en el .docx.
+
+**Lo que falta cuando la fecha 4 complete las horas mínimas:**
+1. Reemplazar la fila `[COMPLETAR AL CIERRE]` de la sección 7 y del Anexo B con la ventana final real.
+2. Añadir la tabla comparativa completa de las 4 fechas (máx/mín/promedio/recuento/sumatoria) al Anexo B,
+   siguiendo el mismo procedimiento que ya se aplicó a la fecha 1 en `docs/04-ventana-4-dias.md`.
+3. Capturar la evidencia de cierre (última recepción de datos de cada nodo) y, si el nodo de agua logra
+   simular antes del cierre, su evidencia correspondiente.
+4. Regenerar ambos documentos con `tools/build_informe.py` + `tools/build_evidencias.py` y volver a
+   convertir a PDF con `tools/topdf.ps1`.

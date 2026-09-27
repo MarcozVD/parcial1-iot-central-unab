@@ -29,16 +29,16 @@ d.toc()
 d.h("Matriz de cumplimiento (rúbrica → evidencia)", 1)
 d.table(["Indicador de evaluación", "Peso", "Dónde está la evidencia"], [
     ["IoT Template (setup + test): aplicación, plantilla publicada, properties, comandos, Rules, identidad visual",
-     "15 %", "capturas 01, 02, 06-09 · secciones 4 y 9 del informe · RULES_*.png"],
+     "15 %", "capturas 01, 02, 06-09, 13 · secciones 4, 5 y 9 del informe · RULES_*.png"],
     ["Datos, Digital Twin y arquitectura: catálogo de 10 dispositivos, datasheets, rangos de industria, diagrama con telecomunicaciones",
      "20 %", "docs/01-catalogo-dispositivos.md · docs/02-datasheets-y-parametros.md · diagrama_arquitectura.png"],
     ["Heterogeneidad de orígenes (incluye Digital Twin, Wokwi, Python, API pública, feed meteorológico); asincronía, desconexión y operación en línea",
-     "20 %", "capturas 02-05 y 10-12 (datos crudos por origen) · logs de nodos · hueco documentado"],
+     "20 %", "capturas 02-05, 10-12, 14-21 (datos crudos por origen y por fecha) · logs de nodos · sección 6.1 del informe (4 incidentes reales de desconexión/reconexión)"],
     ["Ventana de 4 días y comparativa (máx/mín/promedio/recuento/sumatoria)",
-     "15 %", "docs/04-ventana-4-dias.md · resumen_datos.py · capturas del Data Explorer"],
+     "15 %", "docs/04-ventana-4-dias.md · sección 7 y anexo B del informe · capturas del Data Explorer · [tabla comparativa final pendiente de cierre de la fecha 4]"],
     ["Control room y documento: panel personalizado, tablas de parámetros, historial de versiones, repo limpio",
      "15 %", "captura 09 (panel) · informe secciones 8 y 11 · README del repositorio"],
-    ["Sustentación y dos códigos en vivo", "15 %", "capturas 10-12 (Python en el portátil y Wokwi en el navegador en vivo)"],
+    ["Sustentación y dos códigos en vivo", "15 %", "capturas 15-16 y 19-21 (Python en el servidor Ubuntu y Wokwi en el navegador, en vivo el 26 y 27 de septiembre)"],
 ], widths_mm=[70, 14, 79])
 
 d.h("1. Flota en Azure IoT Central", 1)
@@ -66,7 +66,37 @@ d.figure(E + "06-reglas-6-habilitadas.png", "Captura 06 — Reglas: seis reglas 
 d.h("3.2 Flota y estado de aprovisionamiento al cierre del día", 1)
 d.figure(E + "07-flota-conexion-24sep.png", "Captura 07 — Lista de dispositivos: los diez nodos aprovisionados con la plantilla Nodo DC-ANDES-1.")
 
-d.h("4. Logs de los nodos (recortes reales)", 1)
+d.page_break()
+d.h("3.3 Vistas de operador de la plantilla", 1)
+d.p("Además del panel de aplicación (sección 3), la plantilla publica dos vistas de operador propias: "
+    "Overview (KPIs y gráficos de todas las telemetrías del gemelo) y About (propiedades editables). "
+    "Ambas se generan a partir del modelo publicado y están disponibles para cualquier dispositivo de la flota.")
+d.figure(E + "dia4-views-plantilla.png", "Captura 13 — Vistas configuradas en la plantilla Nodo DC-ANDES-1 (Overview, About).")
+
+d.h("4. Días 2 a 4 — migración a servidor remoto y su evidencia", 1)
+d.p("A partir del 25 de septiembre los nodos Python se trasladaron a un servidor Ubuntu remoto "
+    "(52.252.133.127) para ejecutar, en la sustentación, el segundo de los dos códigos en un equipo "
+    "distinto al portátil. Las capturas siguientes documentan el estado de esa infraestructura en las "
+    "fechas 3 y 4, ya con el supervisor remoto corregido (incidente 6.1 del informe).")
+d.h("4.1 Día 3 (26-sep) — servidor estable, 8/8 nodos", 2)
+d.figure(E + "dia3-portal-flota.png", "Captura 14 — Flota completa (10 dispositivos) el 26 de septiembre.")
+d.figure(E + "dia3-datos-rackc.png", "Captura 15 — DC-RACKC-03 publicando desde el servidor Ubuntu: Conectado, telemetría cada 30 s.")
+d.figure(E + "dia3-wokwi-rackb.png", "Captura 16 — Monitor serie del ESP32 Rack B publicando en vivo (26-sep).")
+d.figure(E + "dia3-panel.png", "Captura 17 — Panel Cuarto de Control con datos del 26 de septiembre.")
+
+d.h("4.2 Día 4 (27-sep) — solo servidor remoto + Rack B", 2)
+d.p("Para la fecha 4 se detuvo intencionalmente la flota local: toda la telemetría Python proviene "
+    "exclusivamente del servidor Ubuntu, aislando esa infraestructura como el segundo código en vivo de la "
+    "sustentación (el primero es el ESP32 en el navegador).")
+d.figure(E + "dia4-portal-flota.png", "Captura 18 — Flota el 27 de septiembre, con los 7 nodos Python publicando solo desde el servidor.")
+d.figure(E + "dia4-datos-rackc.png", "Captura 19 — DC-RACKC-03 (servidor Ubuntu), Conectado, 27/9/2026.")
+d.figure(E + "dia4-datos-humo.png", "Captura 20 — DC-HUMO-08 (servidor Ubuntu), 27/9/2026.")
+d.figure(E + "dia4-wokwi-rackb.png", "Captura 21 — Monitor serie del ESP32 Rack B, 27/9/2026.")
+d.callout("[PENDIENTE AL CIERRE] Cuando la fecha 4 complete el mínimo de horas se añade aquí la captura "
+          "final de cierre (última recepción de datos de cada nodo) y, si el nodo de agua logra simular "
+          "antes del cierre, su evidencia correspondiente.", kind="warn", title="Evidencia de cierre — pendiente")
+
+d.h("5. Logs de los nodos (recortes reales)", 1)
 d.p("Los expedientes completos están en logs/. Se incluyen recortes de arranque y de publicación de cada "
     "origen para que se vea el protocolo y el intervalo reales.")
 for nombre, archivo, texto in [
@@ -83,7 +113,7 @@ for nombre, archivo, texto in [
     d.code(lineas + ["…"])
     d.p(texto, size=9.5)
 
-d.h("5. Estado de la flota en el arranque", 1)
+d.h("6. Estado de la flota en el arranque", 1)
 ruta = pathlib.Path("logs/supervisor.log")
 if ruta.exists():
     d.code([ln.rstrip("\n") for ln in ruta.open(encoding="utf-8")][:14] + ["…"])
