@@ -99,6 +99,33 @@ d.p("El ESP32 del nodo de agua no llegó a simular en esta fecha (Wokwi con los 
     "mismo motivo. Es una limitación de la plataforma Wokwi, no del sketch, y no afecta la cobertura "
     "general porque el nodo de agua ya tiene datos completos en las fechas 1 y 3.")
 
+d.page_break()
+d.h("4.3 Métricas de los 10 dispositivos en las 4 fechas (Data Explorer)", 1)
+d.p("Consulta del Explorador de datos de IoT Central sobre el grupo «Nodo DC-ANDES-1 - All devices», "
+    "agrupada por Id. de dispositivo, con ocho telemetrías que cubren todas las zonas (temperatura de "
+    "intake de rack, pasillo frío, exterior, PM2.5, humedad de piso, temperatura de techo, potencia de "
+    "fila y eventos de acceso). Se ejecutó con cuatro rangos, uno por fecha (00:00-23:59, UTC-05:00), y "
+    "uno con la ventana completa. La leyenda del Explorador solo lista los dispositivos que enviaron "
+    "datos en el rango, así que la tabla siguiente sale directamente de la plataforma, no de los CSV "
+    "locales (se guardó en datos/matriz_data_explorer.json).")
+import json as _json
+_m = _json.loads(pathlib.Path("datos/matriz_data_explorer.json").read_text(encoding="utf-8"))["dispositivos_con_datos"]
+_todos = ["DC-RACKA-01", "DC-RACKB-02", "DC-RACKC-03", "DC-PASILLO-04", "DC-CLIMA-05", "DC-AIRE-06",
+          "DC-AGUA-07", "DC-HUMO-08", "DC-ENERGIA-09", "DC-ACCESO-10"]
+_f = sorted(_m)
+d.table(["Dispositivo"] + [f"{x}-sep" for x in _f],
+        [[t] + ["sí" if t in _m[x] else "—" for x in _f] for t in _todos]
+        + [["Total con datos"] + [f"{len(_m[x])}/10" for x in _f]],
+        widths_mm=[45, 29, 29, 29, 29])
+d.p("DC-AGUA-07 (ESP32 #2 en Wokwi) no tiene datos el 25-sep (la simulación del nodo de agua no estuvo "
+    "publicando ese día) ni el 27-sep (los servidores de compilación de Wokwi no dejaron arrancar la "
+    "simulación). Los otros nueve dispositivos publicaron en las cuatro fechas.")
+d.figure(E + "de-ventana.png", "Captura 23 — Ventana completa 24-27 sep: ocho telemetrías agrupadas por dispositivo; se ven los huecos entre fechas.")
+d.figure(E + "de-24.png", "Captura 24 — Data Explorer, 24/09/2026 00:00-23:59.")
+d.figure(E + "de-25.png", "Captura 25 — Data Explorer, 25/09/2026 00:00-23:59.")
+d.figure(E + "de-26.png", "Captura 26 — Data Explorer, 26/09/2026 00:00-23:59.")
+d.figure(E + "de-27.png", "Captura 27 — Data Explorer, 27/09/2026 00:00-23:59.")
+
 d.h("5. Logs de los nodos (recortes reales)", 1)
 d.p("Los expedientes completos están en logs/. Se incluyen recortes de arranque y de publicación de cada "
     "origen para que se vea el protocolo y el intervalo reales.")

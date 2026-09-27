@@ -1,0 +1,57 @@
+{
+ "fuente": "IoT Central Data Explorer, grupo Nodo DC-ANDES-1 - All devices, agrupado por Id. de dispositivo, 8 telemetrias",
+ "rangos": {
+  "24": "24/09/2026 00:00 - 24/09/2026 23:59 (UTC-05:00)",
+  "25": "25/09/2026 00:00 - 25/09/2026 23:59 (UTC-05:00)",
+  "26": "26/09/2026 00:00 - 26/09/2026 23:59 (UTC-05:00)",
+  "27": "27/09/2026 00:00 - 27/09/2026 23:59 (UTC-05:00)"
+ },
+ "dispositivos_con_datos": {
+  "24": [
+   "DC-ACCESO-10",
+   "DC-AGUA-07",
+   "DC-AIRE-06",
+   "DC-CLIMA-05",
+   "DC-ENERGIA-09",
+   "DC-HUMO-08",
+   "DC-PASILLO-04",
+   "DC-RACKA-01",
+   "DC-RACKB-02",
+   "DC-RACKC-03"
+  ],
+  "25": [
+   "DC-ACCESO-10",
+   "DC-AIRE-06",
+   "DC-CLIMA-05",
+   "DC-ENERGIA-09",
+   "DC-HUMO-08",
+   "DC-PASILLO-04",
+   "DC-RACKA-01",
+   "DC-RACKB-02",
+   "DC-RACKC-03"
+  ],
+  "26": [
+   "DC-ACCESO-10",
+   "DC-AGUA-07",
+   "DC-AIRE-06",
+   "DC-CLIMA-05",
+   "DC-ENERGIA-09",
+   "DC-HUMO-08",
+   "DC-PASILLO-04",
+   "DC-RACKA-01",
+   "DC-RACKB-02",
+   "DC-RACKC-03"
+  ],
+  "27": [
+   "DC-ACCESO-10",
+   "DC-AIRE-06",
+   "DC-CLIMA-05",
+   "DC-ENERGIA-09",
+   "DC-HUMO-08",
+   "DC-PASILLO-04",
+   "DC-RACKA-01",
+   "DC-RACKB-02",
+   "DC-RACKC-03"
+  ]
+ }
+}

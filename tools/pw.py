@@ -84,9 +84,9 @@ def main():
         print(v[:n])
     elif op == "js":
         # ejecuta un archivo JS con run-code (async (page) => {...})
-        print(run(["run-code", "--filename", sys.argv[2]], timeout=150, tab=tab))
+        print(run(["run-code", "--filename", sys.argv[2]], timeout=400, tab=tab))
     elif op == "goto":
-        print(run(["goto", sys.argv[2]], timeout=150, tab=tab))
+        print(run(["goto", sys.argv[2]], timeout=400, tab=tab))
     elif op == "click":
         print(run(["click", sys.argv[2]], tab=tab))
     elif op == "fill":
