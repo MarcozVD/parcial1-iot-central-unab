@@ -152,3 +152,23 @@ Las 4 fechas superan el mínimo de 4 horas que exige el taller.
 
 **Con esto cierra la ventana completa de 4 fechas: 24, 25, 26 y 27 de septiembre de 2026
 (35 h 38 min registradas en total).**
+
+## Auditoría del punto 6 del pliego (contenido mínimo del documento)
+
+Revisión sección por sección contra lo que exige el enunciado, con los huecos encontrados y corregidos:
+
+| Sección exigida | Estado | Dónde está |
+|---|---|---|
+| Historial de versiones (fecha, autor, cambio + versión del template y de cada script) | ✅ | informe, tras la portada: tabla de versiones por fecha + tabla de versiones de la plantilla y los 9 scripts |
+| Arquitectura de referencia con telecomunicaciones | ✅ **corregido hoy** | `evidencias/diagrama_arquitectura.png` + sección 3. El render cortaba las cajas 08-10 (la fila se salía del lienzo): ahora se calcula el ancho para que quepan los 10 orígenes |
+| Catálogo de 10 dispositivos (una sola tabla con ID, zona, origen, protocolo, intervalo, variables, datasheet) | ✅ | informe sección 4 + `docs/01-catalogo-dispositivos.md` |
+| Tablas de parámetros (unidad, rango datasheet, rango operativo, precisión, umbral de Rule, valor en el código) | ✅ | `docs/02-datasheets-y-parametros.md` (las 4 tablas traen las 9 columnas) + Anexo A del informe |
+| Comparativa de las 4 fechas (máx/mín/promedio/recuento/sumatoria) + lectura operativa | ✅ **completado hoy** | Anexo B del informe y anexo de evidencias 4.3 (81 filas reales) + 4.4 «Lectura operativa de los extremos» con la interpretación de cada extremo |
+| Evidencia de asincronía / desconexión (Connected/Disconnected, huecos, logs de los dos códigos) | ✅ **completado hoy** | sección 6.1 del informe (4 incidentes reales) + capturas de estado + anexo 5.1 con los dos códigos de la defensa (Python en Ubuntu y ESP32 en Wokwi) |
+| Dashboard / control room (logo, KPIs, gráficos, alarmas) | ✅ | informe sección 8 + capturas 04 y 17 |
+| Repositorio (README de decisiones, sin secretos, proyecto Wokwi, evidencias) | ✅ | `README.md` (sección «Decisiones de diseño»), rastreo de claves reales: ninguna; solo `secrets.h.example` |
+
+**Huecos que se corrigieron en esta revisión:** el diagrama de arquitectura (cortaba 3 orígenes), la falta de
+la lectura operativa de los extremos y la falta de los logs explícitos de los dos códigos de la sustentación.
+
+Documentos finales tras la corrección: **informe 18 páginas · anexo 23 páginas**.

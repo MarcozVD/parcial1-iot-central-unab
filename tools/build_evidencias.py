@@ -126,6 +126,34 @@ d.figure(E + "de-25.png", "Captura 25 — Data Explorer, 25/09/2026 00:00-23:59.
 d.figure(E + "de-26.png", "Captura 26 — Data Explorer, 26/09/2026 00:00-23:59.")
 d.figure(E + "de-27.png", "Captura 27 — Data Explorer, 27/09/2026 00:00-23:59.")
 
+d.page_break()
+d.h("4.4 Lectura operativa de los extremos (las 4 fechas)", 1)
+d.p("El pliego pide no solo los números sino qué situación operativa explican. Esta tabla compara el extremo "
+    "de cada variable en las cuatro fechas y lo interpreta; los valores salen de las mismas series de la "
+    "comparativa anterior.")
+d.table(["Variable", "24-sep", "25-sep", "26-sep", "27-sep", "Qué explica el extremo"], [
+    ["tempExhaust (Rack C) máx", "34,21", "34,09", "34,23", "34,16",
+     "el máximo se mantiene casi idéntico los cuatro días y siempre por debajo del umbral de 35 °C: la carga IT y la climatización fueron estables. El mínimo (30,6 en 26-sep) es el valle de madrugada; el 27-sep no tiene valle porque la ventana empezó a las 10:28"],
+    ["humedadRack máx / mín", "50,97 / 40,59", "48,37 / 39,81", "54,17 / 40,69", "54,03 / 47,49",
+     "todo el rango se mantiene dentro de la banda 40-60 %HR recomendada. El máximo más alto (26-sep) coincide con el día más lluvioso: la humedad exterior entró a la sala"],
+    ["deltaPresionPa mín", "16,40", "15,40", "14,90", "16,60",
+     "la presión diferencial nunca se acercó al umbral de 5 Pa con el que se perdería la contención del pasillo frío. El valor más bajo (26-sep) es el mismo día con más tránsito: la apertura de puertas es lo que la baja"],
+    ["tempExterior máx", "26,30", "25,30", "26,10", "24,90",
+     "define las horas sin free-cooling: cuanto más alta, más rato tiene que trabajar el chiller. El 26-sep combina la temperatura más alta con la radiación solar mayor, así que fue el día con menos enfriamiento gratuito"],
+    ["pm25 máx", "17,10", "29,30", "21,90", "6,70",
+     "el 25-sep fue el peor día de aire (29,3 µg/m³, cerca de la guía de 24 h de la OMS) pero sin llegar al umbral de 35; el 27-sep fue el más limpio, coherente con la lluvia de días anteriores"],
+    ["humo máx", "0,02", "0,03", "0,10", "0,03",
+     "la línea base es 0,02. El pico de 0,10 del 26-sep es el único valor que supera el umbral de la regla (0,08): es el evento que justifica tener la regla de humo configurada"],
+    ["potenciaKw máx / suma", "5,84 / 946", "5,84 / 1 362", "6,79 / 2 854", "5,84 / 757",
+     "el 26-sep registra la carga de fila más alta de la ventana (6,79 kW) y consume más energía porque también es la fecha más larga (18 h): fue el día de mayor trabajo del centro de datos"],
+    ["corrienteA máx / mín", "26,57 / 8,13", "26,57 / 23,71", "30,82 / 24,15", "26,57 / 23,71",
+     "el máximo del 26-sep (30,82 A) es el punto más cercano a la protección de 32 A de la PDU en toda la ventana. El mínimo de 8,13 A del 24-sep corresponde a las primeras horas de la ventana, con poca carga conectada"],
+    ["eventosAcceso suma", "1 393", "1 543", "6 049", "2 388",
+     "el 26-sep concentra cuatro veces más aperturas que el primer día: fue la jornada de mantenimiento y visitas, y explica también el mínimo de presión diferencial de esa fecha"],
+    ["tempTecho máx", "27,36", "27,31", "27,38", "27,37",
+     "la estratificación del techo se mantiene prácticamente igual los cuatro días y muy lejos del umbral de incendio: el techo no se calienta de forma anómala en ninguna fecha"],
+], widths_mm=[30, 20, 20, 20, 20, 55])
+
 d.h("5. Logs de los nodos (recortes reales)", 1)
 d.p("Los expedientes completos están en logs/. Se incluyen recortes de arranque y de publicación de cada "
     "origen para que se vea el protocolo y el intervalo reales.")
@@ -142,6 +170,26 @@ for nombre, archivo, texto in [
     d.h(nombre, 2)
     d.code(lineas + ["…"])
     d.p(texto, size=9.5)
+
+d.h("5.1 Los dos códigos que se ejecutan en la sustentación", 2)
+d.p("El pliego pide que en la defensa se vean dos códigos corriendo en equipos distintos. Son estos dos, y "
+    "sus registros reales quedan aquí: el nodo Python del Rack C corriendo en el servidor Ubuntu "
+    "(equipo 1) y el ESP32 del Rack B en el simulador de Wokwi (equipo 2).")
+d.code(["# Equipo 1 · servidor Ubuntu (52.252.133.127) · dc_sdk_mqtt.py → DC-RACKC-03",
+        "[INFO] [DPS] asignado a iotc-...azure-devices.net",
+        "[INFO] [HUB] CONNECT rc=0 (0=OK, 4=timeout de red, 5=no autorizado)",
+        "[INFO] TX cada 30 s  tempIntake / tempExhaust / humedadRack",
+        "",
+        "# Equipo 2 · Wokwi en el navegador · sketch rackb → DC-RACKB-02",
+        "[WIFI] conectado",
+        "[NTP] epoch=1790453591",
+        "[DPS] resp=202 status=assigning  →  [DPS] resp=200 status=assigned",
+        "[MQTT] conectado al hub (Rack B)",
+        '[TX] {"tempIntake":22.36,"tempExhaust":32.31,"humedadRack":47.8} (ok)   cada 15 s'])
+d.figure(E + "dia4-datos-rackc.png", "Captura 28 — Equipo 1 en vivo: DC-RACKC-03 conectado publicando desde el servidor Ubuntu.")
+d.figure(E + "dia4-wokwi-rackb.png", "Captura 29 — Equipo 2 en vivo: ESP32 del Rack B publicando en el simulador de Wokwi.")
+d.p("El ciclo de desconexión y reconexión que hay que explicar en la defensa está documentado en la "
+    "sección 6.1 del informe (los cuatro incidentes reales) y en la captura del Rack B caído con rc=-2.")
 
 d.h("6. Estado de la flota en el arranque", 1)
 ruta = pathlib.Path("logs/supervisor.log")

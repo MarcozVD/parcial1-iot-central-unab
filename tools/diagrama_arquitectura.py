@@ -91,8 +91,11 @@ def main():
             d.text((44, yy), palabra, font=f_sub, fill=BLANCO)
             yy += 26
         x = 236
+        # el ancho se calcula para que TODAS las cajas quepan en el lienzo (antes se cortaban desde la 08)
+        margen_dcho, hueco = 24, 12
+        ancho = int((W - x - margen_dcho - hueco * (len(items) - 1)) / len(items))
+        ancho = max(140, min(300, ancho))
         for nombre, detalle in items:
-            ancho = 262 if len(items) > 6 else 300
             d.rounded_rectangle([x, y, x + ancho, y + 176], radius=10, fill=CLARO, outline=col, width=2)
             # envolver el nombre
             linea, lineas = "", []
@@ -111,9 +114,7 @@ def main():
             for l in detalle.split(" · "):
                 d.text((x + 12, ty), "· " + l, font=f_p, fill=GRIS)
                 ty += 22
-            x += ancho + 14
-            if x > 1700:
-                break
+            x += ancho + hueco
         y += 206
 
     # flechas verticales entre capas

@@ -336,5 +336,31 @@ d.callout("el recuento por variable y fecha es la evidencia directa de la asincr
           "26-sep es proporcional a que esa fecha corrió 4 h 32 min contra 18 h 09.", kind="key",
           title="Lectura de la comparativa")
 
+d.h("Lectura operativa de los extremos (qué situación explican)", 2)
+d.p("El detalle completo, variable por variable y fecha por fecha, está en el anexo de evidencias "
+    "(sección 4.4). El resumen de lo que explican los extremos de la ventana es este:")
+d.table(["Variable", "Extremo de la ventana", "Qué situación operativa explica"], [
+    ["tempExhaust (Rack C)", "máx 34,23 °C (26-sep), mín 30,61 °C (26-sep)",
+     "el máximo es prácticamente el mismo los cuatro días y no llega al umbral de 35 °C: carga IT y climatización estables. El mínimo de madrugada desaparece el 27-sep porque la ventana empezó a las 10:28"],
+    ["humedadRack", "máx 54,17 %HR (26-sep), mín 39,81 %HR (25-sep)",
+     "todo el rango dentro de la banda 40-60 %HR; el máximo más alto cae en el día más lluvioso, cuando la humedad exterior entra a la sala"],
+    ["deltaPresionPa", "mín 14,90 Pa (26-sep)",
+     "nunca se acercó a los 5 Pa que romperían la contención del pasillo frío; el valor más bajo coincide con el día de más tránsito de puertas"],
+    ["tempExterior", "máx 26,30 °C (24-sep), mín 20,10 °C (26-sep)",
+     "define las horas de free-cooling: el 26-sep combina la temperatura más alta con la mayor radiación solar, así que fue el día con menos enfriamiento gratuito"],
+    ["pm25", "máx 29,30 µg/m³ (25-sep), mín 4,60 µg/m³ (27-sep)",
+     "el 25-sep fue el peor día de aire sin llegar al umbral de 35; el 27-sep el más limpio, coherente con la lluvia previa"],
+    ["humo", "máx 0,10 %obs/m (26-sep), base 0,02",
+     "el único valor que supera el umbral de la regla (0,08) en toda la ventana: es el evento que justifica la regla de humo"],
+    ["potenciaKw", "máx 6,79 kW y 2 854 kWh (26-sep)",
+     "el 26-sep fue el día de mayor trabajo del centro de datos: la fecha más larga (18 h) y con la carga de fila más alta"],
+    ["corrienteA", "máx 30,82 A (26-sep), mín 8,13 A (24-sep)",
+     "el máximo queda a 1,2 A de la protección de 32 A de la PDU (el punto más exigente de la ventana); el mínimo son las primeras horas del 24-sep con poca carga conectada"],
+    ["eventosAcceso", "suma 6 049 (26-sep) frente a 1 393 (24-sep)",
+     "el 26-sep concentra cuatro veces más aperturas: jornada de mantenimiento y visitas, y explica el mínimo de presión diferencial de ese día"],
+    ["tempTecho", "máx 27,38 °C (26-sep)",
+     "estratificación estable y muy lejos del umbral de incendio en las cuatro fechas: el techo no se calienta de forma anómala"],
+], widths_mm=[32, 42, 100])
+
 d.save("informe/Informe_Parcial1_DC-ANDES-1.docx")
 print("informe generado: informe/Informe_Parcial1_DC-ANDES-1.docx")
