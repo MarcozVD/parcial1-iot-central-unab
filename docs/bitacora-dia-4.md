@@ -136,3 +136,19 @@ marcador de pendiente.
 | **Total** | **35 h 38** |
 
 Las 4 fechas superan el mínimo de 4 horas que exige el taller.
+
+## Cierre de la ventana — 18:27 (orden «para»)
+
+- **Servidor Ubuntu 52.252.133.127:** inalcanzable al momento del corte (ping 100 % perdido y SSH sin
+  respuesta). La máquina ya estaba apagada o desasignada en Azure, así que no había procesos que detener.
+  No se pudo escribir la línea `FIN` en el registro del servidor por ese motivo; queda anotado aquí.
+- **Telemetría del servidor:** a salvo en el repositorio. Se copió a las 15:00 al cerrar la fecha 4
+  (`datos/remoto_dia4/`, 7 CSV con 1 621 muestras) y el día anterior a `datos/remoto/`.
+- **ESP32 de Wokwi:** las dos simulaciones detenidas en el navegador (la del Rack B seguía en bucle
+  `rc=-2`; el intento del nodo de agua nunca llegó a arrancar).
+- **Flota local del portátil:** en pausa desde el 26-sep; verificado **0 procesos** del proyecto.
+- Registro local: `FIN 2026-09-27 18:27:00` en `logs/flota_sesiones.log`; `logs/PAUSA_FLOTA` reescrito
+  con el estado de cierre.
+
+**Con esto cierra la ventana completa de 4 fechas: 24, 25, 26 y 27 de septiembre de 2026
+(35 h 38 min registradas en total).**
