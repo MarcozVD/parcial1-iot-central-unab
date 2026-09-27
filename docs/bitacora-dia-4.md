@@ -20,11 +20,16 @@
 
 ## Incidencia: ESP32 de agua no pudo simular
 
-El proyecto del nodo de agua quedó bloqueado en **"Build Servers Busy"** de Wokwi durante más de
-20 minutos, con varios reintentos (cerrar diálogo + reiniciar simulación) espaciados en el tiempo.
-No es un fallo del sketch ni del proyecto: es la cola de compilación del plan gratuito de Wokwi,
-saturada por tener dos proyectos ESP32 abiertos a la vez en la misma sesión. Es una limitación conocida
-del plan gratuito (ver nota en `docs/05-operacion.md`, sección "Wokwi free-plan constraints").
+El proyecto del nodo de agua quedó bloqueado en **"Build Servers Busy"** de Wokwi. Se probó:
+
+1. Cerrar el diálogo y reiniciar la simulación (3 intentos espaciados ~3-5 min).
+2. **Abrir un proyecto completamente nuevo** (pestaña limpia, sin historial) e inyectar el sketch desde
+   cero: mismo resultado.
+
+Con el mismo bloqueo en un proyecto recién creado, se descarta que sea un problema del proyecto o de la
+sesión: es la cola de compilación del plan gratuito de Wokwi, saturada por tener el Rack B simulando en
+paralelo. Es una limitación conocida del plan gratuito (ver nota en `docs/05-operacion.md`, sección
+"Wokwi free-plan constraints"). Se dejó de insistir tras ~30 min de intentos.
 
 **Cobertura de la fecha sin el nodo de agua:** 9 de 10 orígenes activos (7 Python en servidor + Rack B
 ESP32 + simulador nativo). El nodo de agua ya tiene cobertura de sobra en las fechas 1 y 3
