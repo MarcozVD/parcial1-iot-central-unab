@@ -172,3 +172,31 @@ Revisión sección por sección contra lo que exige el enunciado, con los huecos
 la lectura operativa de los extremos y la falta de los logs explícitos de los dos códigos de la sustentación.
 
 Documentos finales tras la corrección: **informe 18 páginas · anexo 23 páginas**.
+
+## Publicación del repositorio (repositorio público)
+
+El repositorio se publicó en **https://github.com/MarcozVD/parcial1-iot-central-unab** (público, rama
+`main`, 226 archivos). Antes de publicar se ejecutó la auditoría de secretos de tres capas que exige el
+procedimiento:
+
+| Capa | Alcance | Resultado |
+|---|---|---|
+| 1. Texto | 226 archivos del árbol a publicar | limpio |
+| 2. Imágenes (OCR) | 31 capturas (portal, monitores serie, diagrama) | limpio, ninguna clave ni token visible |
+| 3. Artefactos derivados | los 2 PDF del informe | limpio (búsqueda binaria de fragmentos) |
+
+**Hallazgo real que se corrigió:** los archivos `tools/js/wokwi_rackb_payload.js` y
+`tools/js/wokwi_agua_payload.js` estaban versionados y llevaban el `secrets.h` incrustado en base64, es
+decir **la clave real del dispositivo** del Rack B y del nodo de agua. Se sacaron del control de
+versiones, se añadieron al `.gitignore` (se regeneran en local en cada sesión) y **se purgaron del
+historial completo con `git filter-repo`**, verificando después que no queda ninguna clave en ningún
+commit. También se retiraron del repositorio los registros de consola del navegador (`.playwright-cli/`),
+el directorio `logs/` (estado de ejecución) y un `logs/old_template.json` con una clave con forma de
+credencial.
+
+Las claves nunca salieron de la máquina (el repositorio no tenía remoto hasta ahora), así que no hubo
+exposición externa; aun así se deja constancia del hallazgo.
+
+**Verificación posterior a la publicación:** clon fresco del remoto con el mismo hash de commit que el
+árbol auditado (`c970cf60`), 226 archivos, capa de texto limpia y sin `.secrets/`, `.venv/`, `logs/` ni
+payloads en el repositorio remoto.
