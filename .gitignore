@@ -1,14 +1,88 @@
+# ---------------------------------------------------------------------------
+# Credenciales y secretos  (JAMAS al repositorio)
+# ---------------------------------------------------------------------------
 .secrets/
-.venv/
-__pycache__/
-*.pyc
-logs/*.log
-logs/flota.json
-logs/templates*.json
-datos/*.db
-wokwi/*/secrets.h
 .env
+*.env
+!.env.example
 dispositivos/wokwi/*/secrets.h
+wokwi/*/secrets.h
+*.pem
+*.key
+creds.json
+
+# Payloads generados para Wokwi: llevan el secrets.h incrustado en base64,
+# es decir la clave real del dispositivo. Se generan en local con
+# tools/wokwi_payload.py y nunca se publican.
+tools/js/wokwi_*_payload.js
+
+# ---------------------------------------------------------------------------
+# Entornos y dependencias
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------------------------------------------------------------------------
+# Estado de ejecucion de la flota (local, ruidoso y sin valor para publicar)
+# ---------------------------------------------------------------------------
+logs/*.log
+logs/*.out
+logs/*.pid
 logs/supervisor.pid
 logs/PAUSA_FLOTA
+logs/flota.json
+logs/flota_sesiones.log
+logs/templates*.json
+logs/old_template.json
+logs/dash_actual.json
+logs/de_leyenda.txt
+
+# recortes y renders intermedios de las herramientas de evidencias
+logs/_*.png
+logs/pg_p*.png
+logs/*_p[0-9]*.png
+logs/_pg*.png
+
+# bases de datos locales de series
+datos/*.db
+datos/*.sqlite
+
+# ficheros de estado que escribe el hub al aprovisionar
+datos/hub_*.txt
+
+# ---------------------------------------------------------------------------
+# Automatizacion del navegador (consolas y snapshots con texto de las paginas)
+# ---------------------------------------------------------------------------
 .playwright-cli/
+playwright-report/
+test-results/
+
+# ---------------------------------------------------------------------------
+# Sistema operativo y editores
+# ---------------------------------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# ---------------------------------------------------------------------------
+# Respaldos y paquetes generados
+# ---------------------------------------------------------------------------
+*.zip
+*.7z
+parcial1_backup*/
+
+# NOTA: los CSV de datos/ y las capturas de evidencias/ SI se publican a proposito:
+# son la evidencia de la ventana de 4 dias y no contienen credenciales.
+# datos/remoto/ y datos/remoto_dia4/ tambien se publican (telemetria rescatada del servidor).
