@@ -26,7 +26,13 @@ def claves_reales() -> set[str]:
 
 
 def main() -> int:
-    from rapidocr_onnxruntime import RapidOCR
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+    except ModuleNotFoundError:
+        print("Falta rapidocr. Este script necesita un interprete que lo tenga instalado:")
+        print("  python3 -m pip install rapidocr-onnxruntime")
+        print("y ejecutarlo, por ejemplo:  python3 tools/ocr_audit.py")
+        return 2
     ocr = RapidOCR()
     frags = claves_reales()
     imagenes = [f for f in subprocess.run(["git", "ls-files"], cwd=RAIZ, capture_output=True, text=True).stdout.split()

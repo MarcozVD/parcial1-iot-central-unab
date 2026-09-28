@@ -20,6 +20,9 @@ DESTINO_POR_DEFECTO = pathlib.Path.home() / "OneDrive" / "Parcial1_IoT_Central_b
 
 EXCLUIR_DIRS = {".venv", ".secrets", ".playwright-cli", "__pycache__", "node_modules", ".mypy_cache"}
 EXCLUIR_SUFIJOS = {".pyc", ".pyo"}
+# Los payloads de Wokwi llevan el secrets.h incrustado en base64 (la clave real del
+# dispositivo): no deben acabar en un ZIP que despues se sincroniza a la nube.
+EXCLUIR_ARCHIVOS = {"wokwi_rackb_payload.js", "wokwi_agua_payload.js"}
 
 
 def main() -> int:
@@ -41,6 +44,8 @@ def main() -> int:
             if any(parte in EXCLUIR_DIRS for parte in rel.parts):
                 continue
             if ruta.suffix in EXCLUIR_SUFIJOS:
+                continue
+            if ruta.name in EXCLUIR_ARCHIVOS:
                 continue
             if ruta.is_dir():
                 continue
