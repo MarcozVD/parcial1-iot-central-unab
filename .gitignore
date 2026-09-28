@@ -86,3 +86,7 @@ parcial1_backup*/
 # NOTA: los CSV de datos/ y las capturas de evidencias/ SI se publican a proposito:
 # son la evidencia de la ventana de 4 dias y no contienen credenciales.
 # datos/remoto/ y datos/remoto_dia4/ tambien se publican (telemetria rescatada del servidor).
+
+# El directorio logs/ es estado de ejecucion local: no se publica
+# (los extractos utiles ya estan en el anexo de evidencias en PDF)
+logs/
